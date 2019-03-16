@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"shopping_cart_db.savelaters"},{"v":2,"unique":true,"key":{"sid":1},"name":"sid_1","ns":"shopping_cart_db.savelaters","background":true},{"v":2,"unique":true,"key":{"cid":1},"name":"cid_1","ns":"shopping_cart_db.savelaters","background":true}],"uuid":"c690842a0a6848878ee217a33ce6d134"}

@@ -1,0 +1,225 @@
+<!-- breadcrumb area start -->
+<section class="breadcrumb-area breadcrumb-bg extra">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-inner">
+                    <!-- breadcrumb inner -->
+                    <div class="left-content-area">
+                        <!-- left content area -->
+                        <h1 class="title">Search Page</h1>
+                    </div><!-- //. left content area -->
+                    <div class="right-content-area">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li>Search Page</li>
+                        </ul>
+                    </div>
+                </div><!-- //. breadcrumb inner -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb area end -->
+<!-- category content area start -->
+<div class="category-content-area search-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="category-sidebar">
+                    <!-- category sidebar -->
+                    <div class="category-filter-widget">
+                        <!-- category-filter-widget -->
+                        <h4 class="title">Filter by <span class="right">
+                            </span></h4>
+             <select #scategory="ngModel"  ngModel  name="selectedCategory"  (change)="filterProductsByCategory(scategory);">
+                                         <option value="">All</option>
+                                        <option value="Cloths">Cloths</option>
+                                        <option value="Electronics">Electronics</option>
+                                        <option value="Mobile">Mobile</option>
+                                        <option value="Bag">Bag</option>
+                                        <option value="Shoe">Shoe</option>
+                                    </select> 
+                                  
+                    </div><!-- //.category-filter-widget -->
+                </div><!-- //. category sidebar -->
+                <div class="category-compare margin-bottom-30">
+                    <h4 class="title">compare (03)</h4>
+                    <ul class="compare-list">
+                        <li>
+                            <div class="single-compare-item">
+                                <!-- single compare item -->
+                                <h4 class="title">Intel kaby lake core i3 7100 3.90GHZ 3MB.</h4>
+                                <div class="close-btn">X</div>
+                            </div><!-- //..single compare item -->
+                        </li>
+                        <li>
+                            <div class="single-compare-item">
+                                <!-- single compare item -->
+                                <h4 class="title">Intel kaby lake core i3 7100 3.90GHZ 3MB.</h4>
+                                <div class="close-btn">X</div>
+                            </div><!-- //..single compare item -->
+                        </li>
+                        <li>
+                            <div class="single-compare-item">
+                                <!-- single compare item -->
+                                <h4 class="title">Intel kaby lake core i3 7100 3.90GHZ 3MB.</h4>
+                                <div class="close-btn">X</div>
+                            </div><!-- //..single compare item -->
+                        </li>
+                    </ul>
+                    <div class="btn-wrapper">
+                        <a href="#" class="boxed-btn">Compare</a>
+                    </div>
+                </div>
+                <div class="banner-img">
+                    <a href="#">
+                        <img src="assets/img/banner-add/08.jpg" alt="banner images">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="right-content-area">
+                    <!-- right content area -->
+                    <div class="top-content">
+                        <!-- top content -->
+                        <div class="left-conent">
+                            <span class="cat">Cloths</span>
+                        </div>
+                        <div class="right-content">
+                            <ul>
+                                <li>
+                                    <div class="form-element has-icon">
+                                        <select class="selectpicker input-field select">
+                                            <option value="0">Show</option>
+                                            <option value="2">Hide</option>
+                                            <option value="1">Show</option>
+                                        </select>
+                                        <div class="the-icon">
+                                            <i class="fas fa-angle-down"></i>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-element has-icon">
+
+                                        <select [(ngModel)]="sortingMethod" name="sortingMethod" class="input-field select" (change)="getSortOrders()">
+                                            <option value="Asc">Price (low to high)</option>
+                                            <option value="Desc">Price (high to low)</option>
+                                        </select>
+                                        <div class="the-icon">
+                                            <i class="fas fa-angle-down"></i>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+                                <!-- (click)=sortOrders() -->
+                                <li class="grid icon ">
+                                    <i class="fas fa-th-large"></i>
+                                </li>
+                                <li class="grid icon active">
+                                    <i class="fas fa-th-list"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!-- //. top content -->
+
+                    <!-- //START FROM HERE -->
+                    <div class="bottom-content">
+                        <!-- top content -->
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6" *ngFor="let item of searchProduct">
+                                <div class="single-new-collection-item">
+                                    <!-- single new collections -->
+
+                                    <div class="thumb">
+                                        <img src="{{item.imageUrl}}" alt="new collcetion image">
+                                        <div class="hover">
+                                            <a href="#" class="addtocart">Add To Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+                                        <span class="category">{{item.category}}</span>
+                                        <a href="#">
+                                            <h4 class="title">{{item.title}}</h4>
+                                        </a>
+                                        <div class="price"><span class="sprice">{{item.sprice}}</span> <del class="dprice">{{item.dprice}}</del></div>
+
+                                    </div><!-- //. single new collections  -->
+                                </div>
+
+                            </div>
+                        </div><!-- //.top content -->
+                    </div><!-- //. right content area -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- category content area end -->
+    <!-- our story area start -->
+    <section class="our-story-area gray-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title">
+                        <span class="subtitle rubik">Latest Posts</span>
+                        <h2 class="title rubik">Read Our Stories</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-our-story-item">
+                        <!-- single our story item -->
+                        <div class="thumb">
+                            <img src="assets/img/our-story/01.jpg" alt="our story">
+                        </div>
+                        <div class="conent">
+                            <span class="time">February 12, 2016</span>
+                            <a href="#">
+                                <h4 class="title">10 Innovative Product In Our Selforin.</h4>
+                            </a>
+                            <p>Lorem ipsum dolor sit amet, consectetuer
+                                adipiscing elit, sed diam nonummy nibh
+                                euismod tincidunt ut...</p>
+                        </div>
+                    </div><!-- //.single our story item -->
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-our-story-item">
+                        <!-- single our story item -->
+                        <div class="thumb">
+                            <img src="assets/img/our-story/02.jpg" alt="our story">
+                        </div>
+                        <div class="conent">
+                            <span class="time">February 12, 2016</span>
+                            <a href="#">
+                                <h4 class="title">10 Innovative Product In Our Selforin.</h4>
+                            </a>
+                            <p>Lorem ipsum dolor sit amet, consectetuer
+                                adipiscing elit, sed diam nonummy nibh
+                                euismod tincidunt ut...</p>
+                        </div>
+                    </div><!-- //.single our story item -->
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-our-story-item">
+                        <!-- single our story item -->
+                        <div class="thumb">
+                            <img src="assets/img/our-story/03.jpg" alt="our story">
+                        </div>
+                        <div class="conent">
+                            <span class="time">February 12, 2016</span>
+                            <a href="#">
+                                <h4 class="title">10 Innovative Product In Our Selforin.</h4>
+                            </a>
+                            <p>Lorem ipsum dolor sit amet, consectetuer
+                                adipiscing elit, sed diam nonummy nibh
+                                euismod tincidunt ut...</p>
+                        </div>
+                    </div><!-- //.single our story item -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- our story area end -->

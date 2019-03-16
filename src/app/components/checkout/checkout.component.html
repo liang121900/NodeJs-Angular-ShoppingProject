@@ -1,0 +1,304 @@
+<!-- breadcrumb area start -->
+<section class="breadcrumb-area breadcrumb-bg extra">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-inner"><!-- breadcrumb inner -->
+                    <div class="left-content-area"><!-- left content area -->
+                        <h1 class="title">Checkout Page</h1>
+                    </div><!-- //. left content area -->
+                    <div class="right-content-area">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/auth-user">Login</a></li>
+                        </ul>
+                    </div>
+                </div><!-- //. breadcrumb inner -->
+            </div>
+        </div>
+    </div>
+    </section>
+    <!-- breadcrumb area end -->
+<!-- checkout page content area start -->
+<div [hidden]="isCompleted">
+<div class="checkout-page-content-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="notification-area"><!-- notification area -->
+                    Returning customer? <a href="/auth-user">Click here to login</a>
+                </div><!-- //.notification area -->
+                <!-- <div class="notification-area-b"><!-- notification area 
+                    <form>
+                        <div class="form-group row">
+                            <label for="promoCode" class="col-sm-5 col-form-label">Have a coupon? <a href="javascript:" (click)="showPromo()">Click here to enter your code</a></label>
+                            <div class="col-sm-6">
+                                <input type="text" style="color: white; font-family: 'Rubik', sans-serif;" class="bottom-border-only" id="promoCode" placeholder="Enter Promo Code" [hidden]="toShow">
+                            </div>
+                            <button class="btn btn-primary" [hidden]="toShow">Submit</button>
+                        </div>
+                    </form>
+                </div>//.notification area -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="left-content-area">
+                    <h3 class="title">Billing Details</h3>
+                    <form action="checkout.html" id="billingForm" #billingForm="ngForm" class="checkout-form" novalidate>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-element">
+                                    <label>First name <span class="base-color">**</span></label>
+                                    <input type="text" #firstName="ngModel" name="firstName" [(ngModel)]="billingDetails.firstName" class="input-field" placeholder="First name..." required>
+                                    <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+                                        <div *ngIf="firstName.errors.required">First Name is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-element">
+                                    <label>Company name</label>
+                                    <input type="text" name="companyName" [(ngModel)]="billingDetails.companyName" class="input-field" placeholder="Company name...">
+                                </div>
+                                <div class="form-element">
+                                    <label>Street address <span class="base-color">**</span></label>
+                                    <input type="text" #streetAddress="ngModel" name="streetAddress" [(ngModel)]="billingDetails.streetAddress" class="input-field" placeholder="Street address..." required>
+                                    <div class="alert alert-danger" *ngIf="streetAddress.touched && !streetAddress.valid">
+                                        <div *ngIf="streetAddress.errors.required">Street Address is required</div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="form-element">
+                                    <label>Town/City  <span class="base-color">**</span></label>
+                                    <input type="text" #city="ngModel" name="city" [(ngModel)]="billingDetails.city" class="input-field" placeholder="Enter town/city..." required>
+                                    <div class="alert alert-danger" *ngIf="city.touched && !city.valid">
+                                        <div *ngIf="city.errors.required">City is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-element">
+                                    <label>Phone Number <span class="base-color">**</span></label>
+                                    <input type="text" #phone="ngModel" name="phone" [(ngModel)]="billingDetails.phone" class="input-field" placeholder="Phone number..." required>
+                                    <div class="alert alert-danger" *ngIf="phone.touched && !phone.valid">
+                                        <div *ngIf="phone.errors.required">Phone Number is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-element">
+                                    <label>Last Name <span class="base-color">**</span></label>
+                                    <input type="text" #lastName="ngModel" name="lastName" [(ngModel)]="billingDetails.lastName" class="input-field" placeholder="Last name..." required>
+                                    <div class="alert alert-danger" *ngIf="lastName.touched && !lastName.valid">
+                                        <div *ngIf="lastName.errors.required">Last Name is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-element select has-icon">
+                                    <label>Country <span class="base-color">**</span></label>
+                                    <select #country="ngModel" [(ngModel)]="billingDetails.country" name="country" class="input-field select " required>
+                                        <option >Select Country</option>
+                                        <option value="Bangladesh">Bangladesh</option>
+                                        <option value="India">India</option>
+                                        <option value="Pakistan">Pakistan</option>
+                                        <option value="USA">USA</option>
+                                    </select>
+                                    <div class="the-icon">
+                                        <i class="fas fa-angle-down"></i>
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="country.touched && !country.valid">
+                                        <div *ngIf="country.errors.required">Country is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-element">
+                                    <label class="blank">&nbsp;</label>
+                                    <input type="text" name="apartmentNum" [(ngModel)]="billingDetails.apartmentNum" class="input-field" placeholder="Apartment Number...">
+                                </div>
+                                <div class="form-element select has-icon">
+                                    <label>Zip Code  <span class="base-color">**</span></label>
+                                    <input type="text" #zipCode="ngModel" name="zipCode" [(ngModel)]="billingDetails.zipCode" class ="input-field" placeholder="Zip Code..." required>
+                                    <div class="alert alert-danger" *ngIf="zipCode.touched && !zipCode.valid">
+                                        <div *ngIf="zipCode.errors.required">Zip Code is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-element">
+                                    <label>Email address<span class="base-color">**</span></label>
+                                    <input type="email" #emailAddress="ngModel" name="emailAddress" [(ngModel)]="billingDetails.email" class="input-field" placeholder="Email address..." required>
+                                    <div class="alert alert-danger" *ngIf="emailAddress.touched && !emailAddress.valid">
+                                        <div *ngIf="emailAddress.errors.required">Email Address is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <div class="col-lg-12">
+                                <div class="shipping-details"><!-- shipping details -->
+                                    <div class="form-element textarea">
+                                        <h3 class="title">Order notes</h3>
+                                        <textarea class="input-field textarea" name="orderNotes" [(ngModel)]="orderPlacedDetails.orderNotes" cols="30" rows="10"></textarea>
+                                    </div>
+                                </div><!-- //. shipping details -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+<!-- RIGHT SIDE OF THE SITE -->
+
+            <div class="col-lg-6">
+                <div class="right-content-area">
+                    <h3 class="title">Your Order</h3>
+                    <ul class="order-list">
+                        <li>
+                            <div class="single-order-list heading">
+                                Product <span class="right">Total</span>
+                            </div>
+                        </li>
+                        <ng-container *ngFor="let item of productList; let i = index">
+                            <li class="name">
+                                <div class="single-order-list">
+                                    <img src="{{url}}/load-image?imageUrl={{item.imageUrl}}" alt="cart image" style="height:60px;">&nbsp;&nbsp;
+                                    <!-- <img _ngcontent-c7="" alt="new collcetion image" 
+                                        src="http://localhost:4000/v3/load-image?imageUrl=products/beauty/10.jpg"> -->
+                                    {{item.title}} 	× {{item.qty}} <span class="right">{{ item.qty * item.price | currency}}</span>
+                                </div>
+                            </li>
+                        </ng-container>
+                        <li>
+                            <div class="single-order-list title-bold">
+                                Subtotal <span class="right normal">{{orderDetails.subtotal | currency}}</span>
+                            </div>
+                        </li>
+                        <li class="shipping">
+                            <div class="single-order-list title-bold">
+                                Shipping
+                                <span class="right normal">Free shipping for all users!</span>
+                                <!-- <span class="right normal">{{orderDetails.shippingCharge}}</span> -->
+                            </div>
+                        </li>
+                        <li>
+                            <div class="single-order-list title-bold">
+                                Tax <span class="right normal">{{orderDetails.tax | currency}}</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="single-order-list title-bold">
+                                Total <span class="right normal">{{orderDetails.total | currency}}</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <!-- PAYMENT DETAILS -->
+                <form #cardForm="ngForm" novalidate>
+                    <div class="checkbox-element account">
+                        <div class="checkbox-wrapper">
+                            <label class="checkbox-inner">Cash on delivery<span style="color: red">*</span>
+                                    <input name="paymentMethod" (click)="payWithCard(false)" type="radio" required>
+                                    <span class="checkmark" required></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="credit-card-area">
+                        <div class="left-content">
+                            <div class="checkbox-element account">
+                                <div class="checkbox-wrapper">
+                                    <label class="checkbox-inner">Credit Card (Stripe)<span style="color: red">*</span>
+                                        <input name="paymentMethod" (click)="payWithCard(true)" type="radio" required>
+                                        <span class="checkmark" required></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-content">
+                            <ul>
+                                <li>
+                                    <img src="assets/img/payment-logo/01.png" alt="payment-logo">
+                                </li>
+                                <li>
+                                    <img src="assets/img/payment-logo/02.png" alt="payment-logo">
+                                </li>
+                                <li>
+                                    <img src="assets/img/payment-logo/03.png" alt="payment-logo">
+                                </li>
+                                <li>
+                                    <img src="assets/img/payment-logo/04.png" alt="payment-logo">
+                                </li>
+                                <li>
+                                    <img src="assets/img/payment-logo/05.png" alt="payment-logo">
+                                </li>
+                                <li>
+                                    <img src="assets/img/payment-logo/06.png" alt="payment-logo">
+                                </li>
+                            </ul>
+                        </div>
+
+                            <div *ngIf="toPayWithCard">
+                                <div class="form-group">
+                                    <label for="creditCardNumber">Credit Card Number<span style="color: red">*</span></label>
+                                    <input #creditCardNumber="ngModel" name="creditCardNumber" [(ngModel)]="paymentDetails.creditCardNumber" type="text" class="form-control" id="creditCardNumber" placeholder="Credit Card Number" minlength="12" maxlength="19" required>
+                                    <div class="alert alert-danger" *ngIf="creditCardNumber.touched && !creditCardNumber.valid">
+                                            <div *ngIf="creditCardNumber.errors.required">Credit Card Number is required</div>
+                                            <div *ngIf="creditCardNumber.errors.minlength">Credit Card Number should not be less than 12 digits</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group col-md-7">
+                                        <label for="expDate">Exp. Date<span style="color: red">*</span></label>
+                                        <input #expDate="ngModel" name="expDate" type="month" [(ngModel)]='paymentDetails.expDate' class="form-control" id="expDate" min="{{today}}" required>
+                                        <div class="alert alert-danger" *ngIf="expDate.touched && !expDate.valid">
+                                            <div *ngIf="expDate.errors.required">Expiration Date is required</div>
+                                            <div *ngIf="expDate.errors.required || expDate.errors.min">Expiration Date cannot before today {{today | date:'MMMM yyyy'}}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-5">
+                                        <label for="cvv">CVV<span style="color: red">*</span></label>
+                                        <input #cvv="ngModel" type="text" name="cvv" class="form-control" [(ngModel)]="paymentDetails.cvv" id="cvv" minlength="3" maxlength="4" required>
+                                        <div class="alert alert-danger" *ngIf="cvv.touched && !cvv.valid">
+                                            <div *ngIf="cvv.errors.required">CVV is required</div>
+                                            <div *ngIf="cvv.errors.minlength">CVV should be between 3-4 digits</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="form-group">
+                                        <label for="creditCardType">Credit Card Type<span style="color: red">*</span></label>
+                                        <select #creditCardType="ngModel" id="creditCardType" name="creditCardType" class="form-control" [(ngModel)]="paymentDetails.creditCardType" required>
+                                          <option value="" selected>Select...</option>
+                                          <option value="Visa">Visa</option>
+                                          <option value="Mastercard">Mastercard</option>
+                                          <option value="American Express">American Express</option>
+                                          <option value="Discover">Discover</option>
+                                        </select>
+                                        <div class="alert alert-danger" *ngIf="creditCardType.touched && !creditCardType.valid">
+                                            Credit Card Type is required.
+                                        </div>
+                                    </div>
+                            </div>
+
+                        <!-- END OF PAYMENT DETAILS -->
+
+                    </div>
+                    <div class="checkbox-element account">
+                        <div class="checkbox-wrapper">
+                            <label class="checkbox-inner">I’ve read and accept the <a href="#" class="base-color">terms & conditions.</a><span style="color: red">*</span>
+                                <input type="checkbox" [(ngModel)]="termsRead" value="1" name="termsRead" required>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="btn-wrapper">
+                        <button type="submit"  (click)="placeOrder(billingForm)" id="placeOrder" [disabled]="!cardForm.form.valid || !billingForm.form.valid" class="submit-btn"> place your order </button>
+                        <div *ngIf="!cardForm.form.valid || !billingForm.form.valid "><p style="color: red">Please enter all required fields.</p></div>
+                    </div>
+                </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- checkout page content area end -->
+
+<div [hidden]="!isCompleted">
+    <app-order-confirmation [products]="productList" [order]="orderPlacedDetails"></app-order-confirmation>
+</div>
+

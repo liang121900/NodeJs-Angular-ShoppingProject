@@ -1,0 +1,45 @@
+<section class="ladies-cloths-area ladies-cloths-bg">
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-lg-6">
+                <div class="ladies-cloths-content-area"><!-- ladies cloths content area -->
+                    <div class="countdown-area"><!-- countdown area start -->
+                        <ul>
+                            <li>
+                                <div class="single-countdown-box"><!-- single countdown box -->
+                                <div class="day" id="days">12 <label>{{days}} </label></div>
+                                 <span class="title">Days</span>
+                                </div><!-- //.single countdown box -->
+                            </li>
+
+                            <li>
+                                <div class="single-countdown-box"><!-- single countdown box -->
+                                    <div class="day" id="hours">10 <label>{{hours}}</label> </div>
+                                    <span class="title">hours</span>
+                                </div><!-- //.single countdown box -->
+                            </li>
+                            <li>
+                                <div class="single-countdown-box"><!-- single countdown box -->
+                                    <div class="day" id="miniutes"> </div>
+                                    <span class="title">miniutes</span>
+                                </div><!-- //.single countdown box -->
+                            </li>
+                            <li>
+                                <div class="single-countdown-box"><!-- single countdown box -->
+                                    <div class="day" id="seconds"> </div>
+                                    <span class="title">seconds</span>
+                                </div><!-- //.single countdown box -->
+                            </li>
+                        </ul>
+                    </div ><!-- //. countdown area -->
+                    <div class="bottom-content" *ngIf="show">
+                        <span class="subtitle">{{ladiesclothsProduct[0].subtitle}}</span>
+                        <h3 class="title">{{ladiesclothsProduct[0].title}}</h3>
+                        <p>{{ladiesclothsProduct[0].description}}</p>
+                        <a href=" " class="boxed-btn"> ladies_collections </a>
+                    </div>
+                </div><!-- //.ladies cloths content area -->
+            </div>
+        </div>
+    </div>
+</section>

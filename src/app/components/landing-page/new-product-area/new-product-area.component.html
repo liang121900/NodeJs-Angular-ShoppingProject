@@ -1,0 +1,161 @@
+<br/><br/>
+<div class="trending-seller-area home-6">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-3 col-md-12">
+                <app-advertisement></app-advertisement>
+                <app-second-advertisement></app-second-advertisement>
+            </div>
+
+            <div class="col-lg-9 ">
+                <div class="home-six-trending-seller-filter"><!-- home six trending seller filter -->
+                   <div class="row">
+                        <div class="col-lg-12">
+
+                            <div class="home-six-trending-sellter-filter-nav">
+                                <ul class="nav nav-tabs"  role="tablist">
+                                    <!-- <li class="nav-item">
+                                        <a class="nav-link active" id="bestseller-tab" data-toggle="tab" href="#bestseller" role="tab" aria-controls="bestseller" aria-selected="true">best sellers</a>
+                                    </li> -->
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="hotdeals-tab" data-toggle="tab" href="#hotdeals" role="tab" aria-controls="hotdeals" aria-selected="true">hot deals</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="trendproduct-tab" data-toggle="tab" href="#trendproduct" role="tab" aria-controls="trendproduct" aria-selected="false">trending products</a>
+                                    </li>
+                                </ul> 
+                            </div>
+
+                            <div class="home-six-trending-masonry">
+                                <div class="tab-content" >
+                                    <!-- <div class="tab-pane fade show active" id="bestseller" role="tabpanel" aria-labelledby="bestseller-tab">
+                                        <app-product-details-cell></app-product-details-cell>
+                                    </div> -->
+                                    
+                                    <div class="tab-pane fade show active" id="hotdeals" role="tabpanel" aria-labelledby="hotdeals-tab">
+                                        <div class="row">
+
+                                                <div class="col-lg-4 col-md-6" *ngFor="let productDetails of hotDealsProducts">
+                                                        <div class="single-new-collection-item"><!-- single new collections -->
+                                                            <div class="thumb">
+                                                                <img src="{{url}}/load-image?imageUrl={{productDetails.imageUrl}}" alt="new collcetion image">
+                                                                <div class="hover">
+                                                                    <a (click)="addToCart(productDetails)" class="addtocart">Add To Cart</a>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="content">
+                                                                <span class="category">{{productDetails.category}}</span>
+                                                                <a href="#"><h4 class="title">{{productDetails.title}}</h4></a>
+                                                                <div class="price">
+                                                                    <span class="sprice">{{productDetails.price}}</span> 
+                                                                    <del class="dprice">{{productDetails.sprice}}</del>
+                                                                </div>
+                                                                <a (click)="showForm(productDetails)" >Share</a>
+                                                         
+                                                            </div>
+                                                        </div><!-- //. single new collections  -->
+                                                    </div>
+                                            <!-- <app-product-details-cell *ngFor="let item of hotDealsProducts" [productItem]="item">
+
+                                            </app-product-details-cell> -->
+                                        </div> 
+                                    </div>
+
+                                    <div class="tab-pane fade" id="trendproduct" role="tabpanel" aria-labelledby="trendproduct-tab">
+                                        <div class="row">
+                                                <div class="col-lg-4 col-md-6" *ngFor="let productDetails of trendingProducts">
+                                                        <div class="single-new-collection-item"><!-- single new collections -->
+                                                            <div class="thumb">
+                                                                 
+                                                                <img src="{{url}}/load-image?imageUrl={{productDetails.imageUrl}}" alt="new collcetion image">
+                                                                <div class="hover">
+                                                                    <a (click)="addToCart(productDetails)" class="addtocart">Add To Cart</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="content">
+                                                                <span class="category">{{productDetails.category}}</span>
+                                                                <a href="#"><h4 class="title">{{productDetails.title}}</h4></a>
+                                                                <div class="price">
+                                                                    <span class="sprice">{{productDetails.price}}</span> 
+                                                                    <del class="dprice">{{productDetails.sprice}}</del>
+                                                                </div>
+                                                                <a (click)="showForm(productDetails)" >Share</a>
+                                                            </div>
+                                                        </div><!-- //. single new collections  -->
+                                                    </div>
+
+                                                <!-- <app-product-details-cell *ngFor="let item of trendingProducts" [productItem]="item">
+
+                                                </app-product-details-cell> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- //.home six trending seller filter -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--sharing product form-->
+
+<!--MODAL-->
+<ng-template #content let-modal style="width:100%;">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-basic-title"><b>Share Product</b></h2>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div style="font-size: 16px" class="modal-body">
+        <form>
+            <div class="form-group">
+                <label for="Button Two Text">{{sharingResponse}}</label>
+              </div>
+            <div class="form-group">
+                <label for="productName">Product Name: {{sharingProduct.title}}</label>
+              </div>
+              <div class="form-group">
+                <label for="category">Category: {{sharingProduct.category}}</label>
+              </div>
+              <div class="form-group">
+                <label for="price">Price: ${{sharingProduct.price}}</label>
+              </div>
+              <div class="form-group">
+                <img src="{{url}}/load-image?imageUrl={{sharingProduct.imageUrl}}" alt="product image">
+              </div>
+
+              <div class="form-group">
+                <label for="Button Two Text">Email to receive the sharing link: </label>
+                <input type="email" [(ngModel)]="sharingEmail" name="btnTwoText" class="form-control" placeholder="enter email address">
+              </div>
+        </form>   
+    </div>
+    <div class="modal-footer">
+      <span style="margin-right: 90px"><b>{{message}}</b></span>
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+      <button type="button" class="btn btn-outline-dark" (click)="shareProduct()">Share</button>
+    </div>
+  </ng-template>
+
+
+
+
+  

@@ -1,0 +1,133 @@
+<!-- breadcrumb area start -->
+<section class="breadcrumb-area breadcrumb-bg extra">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-inner">
+                    <!-- breadcrumb inner -->
+                    <div class="left-content-area">
+                        <!-- left content area -->
+                        <h1 class="title">Blog Page</h1>
+                    </div><!-- //. left content area -->
+                    <div class="right-content-area">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li>Blog</li>
+                        </ul>
+                    </div>
+                </div><!-- //. breadcrumb inner -->
+            </div>
+        </div>
+        <app-blog-save-form *ngIf='isAdmin'></app-blog-save-form>
+    </div>
+    
+</section>
+
+<!-- breadcrumb area end -->
+<!-- blog page content area start -->
+<section class="blog-page-content-area">
+    <div class="container">
+        <div class="row">
+
+
+            <div class="col-lg-4 col-md-6"  *ngFor='let blog of blogs'>
+                <div *ngIf='isAdmin'>
+                        <button type="button"  class="btn btn-danger" (click)="removeBlog(blog)">Delete</button>
+                        <button type="button" class="btn btn-info" (click)="openUpdateBlog(blog,content)">Edit</button>
+                </div>
+                <div class="single-our-story-item">
+                    <!-- single our story item -->
+                    <div class="thumb">
+                        <img style="width: 300px; height: 250px;" src={{blog.image}} alt="our story">
+                    </div>
+                    <div class="conent">
+                        <span class="time">{{blog.postDate|date}}</span>
+                        <a [routerLink]="['/blog-details', blog.bid]">
+                            <h4 class="title">{{blog.title}}</h4>
+                        </a>
+                        <p>{{blog.description}}</p>
+                    </div>
+                </div><!-- //.single our story item -->
+            </div>
+
+
+
+        </div>
+    </div>
+</section>
+<!-- blog page content area end -->
+
+
+
+
+
+
+
+<!--for editing blog-->
+
+<!--MODAL CSS-->
+<style>
+        .edit-slider-button {
+          right: 30px;
+          bottom: 30px;
+          width: 50px;
+          height: 50px;
+          background-color: #2a9cf5;
+          color: #fff;
+          text-align: center;
+          line-height: 60px;
+          border-radius: 50%;
+          z-index: 99;
+          font-size: 25px;
+          cursor: pointer;
+          -webkit-box-shadow: 0 0 5px rgba(42, 156, 245, 0);
+          box-shadow: 0 0 5px rgba(42, 156, 245, 0);
+          margin-left: 1155px;
+      }
+      
+        .edit-slider-button:hover {
+          background-color: #e91e63;
+          transition: 0.3s;
+      }
+      </style>
+      
+      
+      <!--MODAL-->
+      <ng-template #content let-modal style="width:100%;">
+          <div class="modal-header">
+            <h2 class="modal-title" id="modal-basic-title"><b>Edit Blog</b></h2>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <form>
+                  <div class="form-group">
+                    <br>
+                      <label for="Top Small Text">Blog Title</label>
+                      <input type="text" [(ngModel)]="blog.title" name="topSmallText" class="form-control"  placeholder="Enter small text">
+                    </div>
+                    <div class="form-group">
+                      <label for="Bold Text">Blog Description</label>
+                      <input type="text" [(ngModel)]="blog.description" name="boldText" class="form-control" placeholder="Enter bold caption">
+                    </div>
+                    <div class="form-group">
+                        <label for="Bold Text">Post Date</label> 
+                        <input type="date" [ngModel]="blog.postDate | date:'yyyy-MM-dd'"  
+                        (ngModelChange)="blog.postDate = $event" name="postDate123"  class="form-control" placeholder="yyyy-MM-dd">
+                      </div> 
+                    <div class="form-group" >
+                      <label for="Background Image">Blog Image</label>
+                      <input style="display:inline" type="file" (change)="onFileChanged($event)">
+                      <img [src]="imageShow" style="height: 120px;">  
+                    </div> 
+              </form>   
+          </div>
+          <div class="modal-footer">
+            <span style="margin-right: 90px"><b>{{message}}</b></span>
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+            <button type="button" class="btn btn-outline-dark" (click)="updateBlog()">Update Blog</button>
+          </div>
+        </ng-template>
+        
+    

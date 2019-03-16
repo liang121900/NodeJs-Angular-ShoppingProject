@@ -1,0 +1,68 @@
+<!-- header area end -->
+<div class="body-overlay" id="body-overlay"></div>
+<div class="search-popup" id="search-popup">
+    <form action="index.html" class="search-popup-form">
+        <div class="form-element">
+                <input type="text"  class="input-field" placeholder="Search.....">
+        </div>
+        <button type="submit" class="submit-btn"><i class="fas fa-search"></i></button>
+    </form>
+</div>
+<!-- slide sidebar area start -->
+<div class="slide-sidebar-area" id="slide-sidebar-area">
+    <div class="top-content"><!-- top content -->
+        <a href="#" class="logo">
+            <img src="assets/img/logo-white.png" alt="logo">
+        </a>
+        <span class="side-sidebar-close-btn" id="side-sidebar-close-btn"><i class="fas fa-times"></i></span>
+    </div><!-- //. top content -->
+    <div class="bottom-content"><!-- bottom content -->
+        <div class="recent-reviews"><!-- recent reviews -->
+            <h4 class="title">Recent Reviews</h4>
+
+            <!--
+            <a (click)="getReviews()"  class="boxed-btn" style="color:#fff;cursor: pointer;" >Get Reviews</a>
+                -->
+
+            <ng-container *ngFor="let item of reviewList; let i = index">
+                <!-- {{ item | json }} -->
+
+                <div class="single-review-item">
+                    <div class="thumb">
+                        <img src="{{url}}/load-image?imageUrl={{item.imageUrl}}" alt="recent review" style="height:80px;">
+
+                    </div>
+                    <div class="content">
+                        <h4 class="title"><a routerLink="/product-details/{{item.pid}}" style="color:#fff;">{{item.title}}</a></h4>
+                        <ul>
+
+                            <li *ngIf="item.rating > 0" >
+                                    <i class="fas fa-star"></i>
+                            </li>
+                            <li *ngIf="item.rating > 1" >
+                                    <i class="fas fa-star"></i>
+                            </li>
+                            <li *ngIf="item.rating > 2" >
+                                    <i class="fas fa-star"></i>
+                            </li>
+                            <li *ngIf="item.rating > 3" >
+                                    <i class="fas fa-star"></i>
+                            </li>
+                            <li *ngIf="item.rating > 4" >
+                                    <i class="fas fa-star"></i>
+                            </li>
+
+                        </ul>
+                        <span class="posted-by">by Abir Khan</span>
+                    </div>
+                </div>                
+
+            </ng-container>
+
+
+
+
+        </div> <!-- //. recent reviews -->
+    </div><!-- //. bottom content -->
+</div>
+<!-- slide sidebar area end -->

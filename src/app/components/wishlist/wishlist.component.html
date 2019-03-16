@@ -1,0 +1,98 @@
+<!-- breadcrumb area start -->
+<section class="breadcrumb-area breadcrumb-bg extra">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="breadcrumb-inner"><!-- breadcrumb inner -->
+                  <div class="left-content-area"><!-- left content area -->
+                      <h1 class="title">Wish List Page</h1>
+                  </div><!-- //. left content area -->
+                  <div class="right-content-area">
+                      <ul>
+                          <li><a href="/">Home</a></li>
+                          <li>Login</li>
+                      </ul>
+                  </div>
+              </div><!-- //. breadcrumb inner -->
+          </div>
+      </div>
+  </div>
+  </section>
+  <!-- breadcrumb area end -->
+<!-- cart contetn area start -->
+<div class="cart-content-area">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="cart-content-inner"><!-- cart content inner -->
+                  <div class="top-content"><!-- top content -->
+
+                    <a routerLink="/shopping-cart"  class="boxed-btn" style="color:#fff;cursor: pointer;" >View Cart</a>
+                    <br /><br />
+
+                      <table class="table table-responsive">
+                          <thead>
+                              <tr>
+                                  <th>Product</th>
+                                  <th>Price</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+
+                            <!--
+                              <tr><td colspan="4">
+                                  {{ productList | json }}
+                              </td></tr>
+                            -->
+
+                          <tr *ngFor="let item of productList; let i = index">
+
+                              <td *ngIf="item.title !== undefined">
+
+                                   <!-- {{item | json }} -->
+
+                                      <div class="product-details"><!-- product details -->
+                                          <div (click)="removeFromWishList(item, i)" class="close-btn cart-remove-item">
+                                              <i class="fas fa-times"></i>
+                                          </div>
+                                          <div class="thumb">
+                                              <img src="{{url}}/load-image?imageUrl={{item.imageUrl}}" alt="cart image" style="height:80px;"><br />
+                                              <a (click)="addToCart(item)" style="color:#2a9cf5;cursor: pointer;">Add to Cart</a>
+                                          </div>
+                                          <div class="content">
+                                              <h4 class="title">{{item.title}}</h4>
+                                          </div>
+                                      </div><!-- //. product detials -->
+                                  </td>   
+                                  <td *ngIf="item.title !== undefined">
+                                      <div class="price">${{item.price}}</div>
+                                  </td>
+                                                                                                     
+
+                              </tr>
+
+
+
+                          </tbody>
+                      </table>
+                  </div><!-- //. top content -->
+
+
+        
+
+
+
+
+
+
+
+              </div><!-- //. cart content inner -->
+
+
+          </div>
+      </div>
+  </div>
+</div>
+<!-- cart contetn area end -->
+

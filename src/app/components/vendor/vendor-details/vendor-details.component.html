@@ -1,0 +1,49 @@
+<div class="row" [hidden]="isDeleted">
+    <br/><br/> 
+ <div class="thumb">
+    <h3>{{vendorDetails.name}}</h3>
+
+    <!--
+    <img src="{ vendorDetails.photo }" alt="vendor memeber">
+    -->
+
+    <img src="{{baseURI}}/admin/vendors/image/{{vendorDetails.vcode}}" alt="Member">
+
+    {{vendorDetails._id}}
+ 
+    <img (click)="editVendor(vendorDetails._id)" src="assets/img/edit.png" alt="Edit">
+
+    <img (click)="deleteVendor(vendorDetails._id)" src="assets/img/delete.png" alt="Delete">
+
+
+      <!--
+     <img src="assets/img/vendor-member/03.jpg" alt="vendor memeber">
+ -->
+ </div>         
+ <table class="table table-bordered">
+     <tbody>
+     <tr>
+       <td>VCode:</td>
+       <td>{{vendorDetails.vcode}}</td>
+    
+     </tr>
+     <tr>
+       <td>Email:</td>
+       <td>{{vendorDetails.email}} &nbsp;&nbsp;<span (click)="showMore()" style="color:blue;">Click for More</span> </td>
+      
+     </tr>
+
+     <tr [hidden]="isMoreClicked">
+       <td>Mobile:</td>
+       <td>{{vendorDetails.mobile}}</td>
+     </tr>
+
+     <tr [hidden]="isMoreClicked">
+        <td>Address:</td>
+        <td>{{vendorDetails.address}}</td>
+      </tr>
+     
+   </tbody>
+ </table>
+
+   </div>

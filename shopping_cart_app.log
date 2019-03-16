@@ -1,0 +1,43 @@
+2018-12-20T18:05:25.342Z info: A request was received
+2018-12-20T18:06:58.190Z info: A request was received
+2018-12-20T18:07:22.571Z info: A request was received
+2018-12-20T18:07:22.573Z debug: Hello this is testing ..... 10
+2018-12-20T18:10:04.957Z info: A request was received
+2018-12-20T18:10:04.961Z debug: Hello this is testing ..... 10
+2018-12-20T18:24:36.323Z info: A request was received
+2018-12-20T18:24:36.327Z debug: Hello this is testing ..... 10
+2018-12-20T18:25:10.014Z info: A request was received
+2018-12-20T18:25:10.018Z error: this is error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2018-12-20T18:25:10.019Z debug: Hello this is testing ..... 10
+2018-12-20T18:25:13.335Z info: A request was received
+2018-12-20T18:25:13.340Z error: this is error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2018-12-20T18:25:13.343Z debug: Hello this is testing ..... 10
+2018-12-20T18:25:17.776Z info: A request was received
+2018-12-20T18:25:17.782Z error: this is error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2018-12-20T18:25:17.792Z debug: Hello this is testing ..... 10
+2018-12-20T18:35:11.694Z info: A request was received
+2018-12-20T18:35:11.699Z error: this is error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2018-12-20T18:35:11.700Z debug: Hello this is testing ..... 10
+2018-12-20T18:38:46.513Z info: A request was received
+2018-12-20T18:38:46.517Z error: this is error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2018-12-20T18:38:46.522Z debug: Hello this is testing ..... 10
+2018-12-20T18:40:01.175Z info: A request was received
+2018-12-20T18:40:01.181Z error: this is error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2018-12-20T18:40:01.182Z debug: Hello this is testing ..... 10
+2018-12-20T18:41:06.300Z debug: This is inside search controller!!!!!!!!!!!!!!!!!!
+2018-12-20T18:41:06.303Z debug: undefined
+2018-12-20T18:43:59.528Z debug: This is inside search controller!!!!!!!!!!!!!!!!!!
+2018-12-20T18:43:59.528Z debug: undefined
+2018-12-20T18:45:09.511Z info: A request was received
+2018-12-20T18:45:09.514Z error: this is error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2018-12-20T18:45:09.514Z debug: Hello this is testing ..... 10
+2018-12-20T18:45:24.226Z debug: This is inside search controller!!!!!!!!!!!!!!!!!!
+2018-12-20T18:45:24.227Z debug: undefined
+2018-12-20T18:47:44.093Z info: A request was received
+2018-12-20T18:47:44.098Z error: this is error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2018-12-20T18:47:44.098Z debug: Hello this is testing ..... 10
+2018-12-20T18:47:59.363Z debug: This is inside search controller!!!!!!!!!!!!!!!!!!
+2018-12-20T18:47:59.373Z debug: [{"_id":"5c1409093c02132650b0f7dd","pid":"100","imageUrl":"assets/img/new-collections/05.jpg ","category":"Bag","title":"handbag","sprice":"$300","dprice":"$340","dom":"2018-12-14T19:48:26.651Z","doe":"2018-12-14T19:48:26.651Z","__v":0},{"_id":"5c1409093c02132650b0f7df","pid":"300","imageUrl":"assets/img/new-collections/02.jpg","category":"Shoe","title":"Footwear Dark","sprice":"$60","dprice":"$90","dom":"2018-12-14T19:48:26.651Z","doe":"2018-12-14T19:48:26.651Z","__v":0},{"_id":"5c1409093c02132650b0f7e0","pid":"400","imageUrl":"assets/img/new-collections/08.jpg","category":"watch","title":"Apple Watch","sprice":"$360","dprice":"$390","dom":"2018-12-14T19:48:26.651Z","doe":"2018-12-14T19:48:26.651Z","__v":0},{"_id":"5c1409093c02132650b0f7e1","pid":"500","imageUrl":"assets/img/new-collections/12.jpg","category":"Electronics item","title":"Mobile","sprice":"$460","dprice":"$520","dom":"2018-12-14T19:48:26.651Z","doe":"2018-12-14T19:48:26.651Z","__v":0},{"_id":"5c1409093c02132650b0f7e2","pid":"600","imageUrl":"assets/img/new-collections/04.jpg","category":"Cloths","title":"Tshirt","sprice":"$50","dprice":"$70","dom":"2018-12-14T19:48:26.651Z","doe":"2018-12-14T19:48:26.651Z","__v":0},{"_id":"5c1409093c02132650b0f7de","pid":"200","imageUrl":"assets/img/new-collections/01.jpg","category":"Dress","title":"Jacket","sprice":"$70","dprice":"$100","dom":"2018-12-14T19:48:26.651Z","doe":"2018-12-14T19:48:26.651Z","__v":0},{"_id":"5c1409093c02132650b0f7e4","pid":"800","imageUrl":"assets/img/new-collections/11.jpg","category":"Mobile","title":"iPhone","sprice":"$1500","dprice":"$2000","dom":"2018-12-14T19:48:26.651Z","doe":"2018-12-14T19:48:26.651Z","__v":0},{"_id":"5c1409093c02132650b0f7e5","pid":"900","imageUrl":"assets/img/new-collections/09.jpg","category":"Electronics","title":"Speaker","sprice":"$400","dprice":"$450","dom":"2018-12-14T19:48:26.651Z","doe":"2018-12-14T19:48:26.651Z","__v":0},{"_id":"5c1409093c02132650b0f7e3","pid":"700","imageUrl":"assets/img/new-collections/06.jpg","category":"Shoe","title":"HoverBoard","sprice":"$150","dprice":"$200","dom":"2018-12-14T19:48:26.651Z","doe":"2018-12-14T19:48:26.651Z","__v":0}]
+2018-12-21T18:56:54.087Z info: A request was received
+2018-12-21T18:56:54.091Z error: this is error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2018-12-21T18:56:54.092Z debug: Hello this is testing ..... 10

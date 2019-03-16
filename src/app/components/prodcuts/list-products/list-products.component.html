@@ -1,0 +1,118 @@
+<!-- breadcrumb area start -->
+<section class="breadcrumb-area breadcrumb-bg">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="breadcrumb-inner"><!-- breadcrumb inner -->
+                  <div class="left-content-area"><!-- left content area -->
+                      <h1 class="title">Available Product List</h1>
+                  </div><!-- //. left content area -->
+                  <div class="right-content-area">
+                      <ul>
+                          <li><a href="/">Home</a></li>
+                          <li>Available Product List</li>
+                      </ul>
+                  </div>
+              </div><!-- //. breadcrumb inner -->
+          </div>
+      </div>
+  </div>
+</section>
+<!-- breadcrumb area end -->
+
+<!-- best seller area start -->
+<div class="best-seller-vendor-area vendor-list-page" style="margin-bottom: -80px;">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="best-seller-vendor-inner"><!-- best seller vendor inner -->
+                  <div class="best-seller-vendor-tab-content">
+                      <div class="tab-content" >
+                          <div class="tab-pane fade show active" id="popular_item" role="tabpanel" aria-labelledby="popular-item-tab">
+                              <div class="row">
+                                      <div class="col-lg-4 col-md-6 popular" *ngFor="let p of products;">                                        
+                                              <div class="single-rated-box-one"><!-- single rated box one -->
+                                                  <div class="thumb">
+                                                      <img src="{{url}}/{{p.imageUrl}}" alt="product small image" style="height:90px">
+                                                  </div>
+
+                                                  <div class="content">
+                                                      <ul class="ratings" >
+                                                          <li *ngFor="let f of fillstar;"><i class="fas fa-star"></i></li>
+                                                    <!--      <li><i class="fas fa-star-half-alt"></i></li>-->
+                                                          <li *ngFor="let f of emptystar;"><i class="far fa-star"></i></li>
+                                                      </ul>
+                                                      <a routerLink="/product-details/{{p.pid}}"><h4 class="title">{{p.title}}</h4></a>
+                                                      <div class="price"><span class="sprice">${{p.sprice}}</span> <del class="dprice">{{p.price}}</del></div>
+                                                  </div>
+                                              </div><!-- //.single rated box one -->
+                                            </div>
+                              </div>
+                          </div>
+                        </div>
+                  </div>
+              </div><!-- //. best seller vendor inner -->
+          </div>
+      </div>
+  </div>
+</div>
+<!-- best seller area end -->
+
+<!-- our story area start -->
+<section class="our-story-area gray-bg">
+  <div class="container">
+      <div class="row justify-content-center">
+         <div class="col-lg-8">
+              <div class="section-title">
+                  <span class="subtitle rubik">Latest Posts</span>
+                  <h2 class="title rubik">Read Our Stories</h2>
+              </div>
+         </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-4 col-md-6">
+              <div class="single-our-story-item"><!-- single our story item -->
+                  <div class="thumb">
+                      <img src="assets/img/our-story/01.jpg" alt="our story">
+                  </div>
+                  <div class="conent">
+                      <span class="time">February 12, 2016</span>
+                     <a href="#"> <h4 class="title">10 Innovative Product In Our Selforin.</h4></a>
+                      <p>Lorem ipsum dolor sit amet, consectetuer
+                          adipiscing elit, sed diam nonummy nibh
+                          euismod tincidunt ut...</p>
+                  </div>
+              </div><!-- //.single our story item -->
+          </div>
+          <div class="col-lg-4 col-md-6">
+              <div class="single-our-story-item"><!-- single our story item -->
+                  <div class="thumb">
+                      <img src="assets/img/our-story/02.jpg" alt="our story">
+                  </div>
+                  <div class="conent">
+                      <span class="time">February 12, 2016</span>
+                      <a href="#"><h4 class="title">10 Innovative Product In Our Selforin.</h4></a>
+                      <p>Lorem ipsum dolor sit amet, consectetuer
+                          adipiscing elit, sed diam nonummy nibh
+                          euismod tincidunt ut...</p>
+                  </div>
+              </div><!-- //.single our story item -->
+          </div>
+          <div class="col-lg-4 col-md-6">
+              <div class="single-our-story-item"><!-- single our story item -->
+                  <div class="thumb">
+                      <img src="assets/img/our-story/03.jpg" alt="our story">
+                  </div>
+                  <div class="conent">
+                      <span class="time">February 12, 2016</span>
+                      <a href="#"><h4 class="title">10 Innovative Product In Our Selforin.</h4></a>
+                      <p>Lorem ipsum dolor sit amet, consectetuer
+                          adipiscing elit, sed diam nonummy nibh
+                          euismod tincidunt ut...</p>
+                  </div>
+              </div><!-- //.single our story item -->
+          </div>
+      </div>
+  </div>
+</section>
+<!-- our story area end -->

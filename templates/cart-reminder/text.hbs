@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <!-- Google font -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:300,400,700,900' rel='stylesheet' type='text/css'>
+    <!-- Css -->
+    <title>Items Left In Cart Reminder</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+a {
+width: 70%;font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans';font-size: 20px;font-style: normal; font-variant: normal;font-weight: 500;line-height: 26.4px;
+
+  
+  color: #232b37;
+  text-decoration: none; }
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  outline: none;
+  color:coral;
+   }
+
+
+  </style>
+</head>
+<body id="page-top" class="home">
+
+ <hr/>
+<!-- PAGE WRAP -->
+<div id="page-wrap">
+<br/>
+<p style="width: 70%;font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans';font-size: 20px;font-style: normal; font-variant: normal;font-weight: 500;line-height: 26.4px;"> 
+    Hello {{userName}},
+    <br/>   <br/>
+    It seems that there are some items in your shopping cart that are yet completed.
+    Would you like to resume shopping for these items?
+</p>
+
+
+<p style="width: 70%;font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans';font-size: 16px;font-style: normal; font-variant: normal;font-weight: 500;line-height: 26.4px;">
+ <img src="https://image.freepik.com/free-vector/stack-of-cardboard-boxes-illustration_1308-2108.jpg" height="200px;">
+ <br/>
+ <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Product ID</th>
+        <th>ProductName</th>  
+        <th>Category</th>
+        <th>Unit Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each products}}
+      <tr>
+            <td><img src = "http://localhost:4000/v3/load-image?imageUrl={{productUrl}}" style="height:90px"></td>
+            <td>{{pid}}</td>
+            <td>{{title}}</td>
+            <td>{{category}}</td>
+            <td>${{price}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</p>    
+ 
+<a href="{{cartUrl}}">Check Out</a>
+
+<p style="width: 70%;font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans';font-size: 16px;font-style: normal; font-variant: normal;font-weight: 500;line-height: 26.4px;">
+In case of any question and query , please feel free to reach us.
+</p>
+Thanks & Regards,<br/>
+<b>Shopping Car App!</b>
+<hr style="width:250px;" align="left"/>
+Mobile : +913333333333<br/>
+Email  : <b>{{cemail}}</b><br/>
+<!-- <img src="cid:image"/> -->
+<img src="http://132.148.156.135/images/tech-hunk.png" style="margin-top: -50px;"/>
+</div>
+</body>
+</html>

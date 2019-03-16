@@ -1,0 +1,57 @@
+<div class="container">
+
+  <h2>User Table</h2>
+  <hr/>
+  <!-- &nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="button" class="btn btn-danger">Add Student!</button> -->
+  <br/>
+  <div>
+      <input [(ngModel)]="searchText" placeholder="Search username..">
+      <button (click)="searchUser(searchtext)" type="submit">Search</button>
+  </div>
+   <span *ngIf="searchedUser!=null">
+     {{searchedUser.username}}&nbsp;&nbsp;&nbsp;{{searchedUser.role}}
+    &nbsp;{{searchedUser.status}}&nbsp;{{searchedUser.dom}}
+    <button *ngIf="searchedUser.status!='blocked'" type="button" (click)="blockUser(searchedUser.username)" class="btn btn-danger">Block</button>
+    <button *ngIf="searchedUser.status=='blocked'" type="button" (click)="unblockUser(searchedUser.username)" class="btn btn-primary">Unblock</button>
+    &nbsp;&nbsp;&nbsp;
+    <button type="button" (click)="deleteUser(searchedUser.username)" class="btn btn-danger">Delete</button>
+    </span>
+  <br/>
+
+  <span style="font-size: 20px;"></span>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th>Date of Entry</th>
+        <th>Block User</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody id="tcontents">
+
+      <tr *ngFor="let i=index;let p of pdata | paginate: {
+        itemsPerPage: 2, currentPage: page }">
+        <td>&nbsp;{{i+1}}</td>
+        <td>&nbsp;{{p.username}}</td>
+        <td>&nbsp;{{p.role}}</td>
+        <td>&nbsp;{{p.status}}</td>
+        <td>&nbsp;{{p.dom}}</td>
+        <td>&nbsp; <button *ngIf="p.status!='blocked'" type="button" (click)="blockUser(p.username)" class="btn btn-danger">Block</button>
+          <button *ngIf="p.status=='blocked'" type="button" (click)="unblockUser(p.username)" class="btn btn-primary">Unblock</button>
+        </td>
+        <td>&nbsp;<button type="button" (click)="deleteUser(p.username)" class="btn btn-danger">D</button></td>
+
+
+
+        <!-- <td>&nbsp;<img src="{{imageURI}}/{{p._id}}" style="height: 60px;"></td> -->
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+
+</div>

@@ -1,0 +1,20 @@
+<div class="single-featured-one-item"><!-- single featured item -->
+    <div class="inner-item">
+        <span class="subtitle">Get 20% OFF</span>
+                        <h3 class="titlel">Best Offer</h3>
+    </div>
+    <ul>
+        <li>
+            <div class="banner-add" *ngIf='offerAdd[1]'>
+                <a href="offers.html"><img src="{{offerAdd[1].imageUrl}}" alt="banner image"></a>
+
+            </div>
+        </li>
+        <li>
+            <div class="banner-add" *ngIf='offerAdd[0]'>
+                <a href="offers.html"><img src="{{offerAdd[0].imageUrl}}" alt="banner image"></a>
+            </div>
+        </li>
+     </ul>
+</div><!-- //.single featured item -->
+

@@ -1,0 +1,188 @@
+<!-- breadcrumb area start -->
+<section class="breadcrumb-area breadcrumb-bg">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="breadcrumb-inner"><!-- breadcrumb inner -->
+                  <div class="left-content-area"><!-- left content area -->
+                      <h1 class="title">Product Upload</h1>
+                  </div><!-- //. left content area -->
+                  <div class="right-content-area">
+                      <ul>
+                          <li><a href="index.html">Home</a></li>
+                          <li>Product UPload   </li>
+                      </ul>
+                  </div>
+              </div><!-- //. breadcrumb inner -->
+          </div>
+      </div>
+  </div>
+</section>
+<!-- breadcrumb area end -->
+
+<!-- product upload area start -->
+<div class="product-upload-area">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="product-upload-inner"><!-- product upload inner -->
+                  <form action="product_upload.html" class="product-upload-form" #producForm ="ngForm">
+                      <div class="form-element margin-bottom-20">
+                          <input type="file" class="dropify" (change) = "onFileChanged($event)">
+                      </div>
+                      <div class="form-element margin-bottom-20">
+                                <div class="row">
+                                    <div class="col-sm-6"><label>PID <span>**</span></label>
+                                        <input #pid = "ngModel" type="text" name="pid" class="input-field" [(ngModel)]="product.pid" placeholder="Enter product PID..." required ></div>
+                                        <div class="alert alert-danger" *ngIf="pid.touched && !pid.valid">
+                                            pid is required
+                                        </div>
+                                    <div class="col-sm-6"><label>SKU <span>**</span></label>
+                                        <input type="text" name="sku" class="input-field" [(ngModel)]='product.sku' placeholder="Enter product SKU..."></div>
+                                  </div>  
+                    </div>
+                      <div class="form-element margin-bottom-20">
+                          <label>Title <span>**</span></label>
+                          <input type="text" class="input-field" name = "title" [(ngModel)]='product.title' placeholder="Enter title..">
+                      </div>
+                      <div class="form-element margin-bottom-20">
+                            <div class="row">
+                                    <div class="col-sm-6"><label>Category <span>**</span></label>
+                                        <input type="text" class="input-field" name = "category" [(ngModel)]='product.category' placeholder="Enter product category..."></div>
+                                    <div class="col-sm-6"><label>Brand</label>
+                                        <input type="text" class="input-field" name = "brand" [(ngModel)]='product.brands' placeholder="Enter product Brand..."></div>
+                                  </div>
+                      </div>
+                      <div class="form-element margin-bottom-20">
+                            <div class="row">
+                                    <div class="col-sm-6"><label>Price <span>**</span></label>
+                                        <input type="text" class="input-field" name = "price" [(ngModel)]='product.price' placeholder="Enter product price..."></div>
+                                    <div class="col-sm-6"><label>Sell Price</label>
+                                        <input type="text" class="input-field" name = "sellPrice" [(ngModel)]='product.sprice' placeholder="Enter product sell price..."></div>
+                                  </div>
+                      </div>
+                      <div class="form-element margin-bottom-20">
+                            <div class="row">
+                                    <div class="col-sm-6"><label>Reward Points <span>**</span></label>
+                                        <input type="text" class="input-field" name = "rewardPoint" [(ngModel)]='product.rewardPoints' placeholder="Enter product price..."></div>
+                                    <div class="col-sm-6"><label>Stock</label>
+                                        <select class="input-field" name = "stock" [(ngModel)]='product.stock'>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>
+                                    
+                                    </div>
+                                  </div>
+                      </div>
+                      <div class="form-element margin-bottom-20">
+                            <div class="row">
+                                    <div class="col-sm-3"><label>Color: </label>
+                                        <select class="input-field" name = "color" [(ngModel)]='product.color'>
+                                                <option>White</option>
+                                                <option>Black</option>
+                                                <option>Green</option>
+                                            </select>
+                                    </div>
+                                        <div class="col-sm-3"><label>Size <span></span></label>
+                                            <input type="text" class="input-field"  name = "size" [(ngModel)]='product.size' placeholder="Enter product size..."></div>
+                                            <div class="col-sm-3"><label>Weight <span></span></label>
+                                                <input type="text" class="input-field"  name = "weight" [(ngModel)]='product.weight' placeholder="Enter product weight..."></div>
+                                               
+                                        <div class="col-sm-3"><label>Items</label>
+                                        <select class="input-field"  name = "items" [(ngModel)]='product.items'>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                        </select>   
+                                    </div>
+                                  </div>
+                      </div>
+                      <div class="form-element margin-bottom-20">
+                            <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>Vendor Name <span>**</span></label>
+                                        <select class="input-field" name = vendorName [(ngModel)] = "product.vendorName">
+                                                <option *ngFor = "let v of vendorList;">{{v.name}}</option>
+
+                                                <option>inhouse</option>
+                                            </select>
+                                        </div>   
+                                        <!--  
+                                    <div class="col-sm-6"><label>Rating</label>
+                                        <select class="input-field" name = "ratings" [(ngModel)]="product.ratings">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    
+                                    </div>--> 
+
+                            </div>
+                      </div> 
+                      
+                      <div class="form-element margin-bottom-20">
+                          <label>Overview <span></span></label>
+                          <input type="text" class="input-field" name = "overview" [(ngModel)] = "product.overview" placeholder="Option One...">
+                      </div>
+                      <div class="form-element margin-bottom-20">
+                            <label>Description <span></span></label>
+                            <input type="text" class="input-field" name = "Description" [(ngModel)] = "product.description" placeholder="Description...">
+                        </div>
+                      <div class="form-element margin-bottom-20">
+                            <label>Features <span></span></label>
+                          <input type="text" class="input-field" name = "Features" [(ngModel)]= "product.features" placeholder="Features...">
+                      </div>
+                      <div class="form-element margin-bottom-20">
+                            <label>Technical Specifications <span></span></label>
+                          <div class="container">        
+                            <table class="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th>SNO</th>
+                                  <th>Item Attribute</th>
+                                  <th>Item Value</th>
+                                </tr>
+                              </thead>
+                              <tbody >
+                                <tr *ngFor = "let t of product.techSpecs; let i = index;">
+                                    <td>{{i+1}}</td>
+                                    <td>{{t.itemAttribute}}</td>
+                                    <td>{{t.itemValue}}</td>
+                                    <td><input type="button" (click)="removeAttribute(t)" class="submit-btn" value="Remove"></td>
+                                </tr>
+
+                                <tr>
+                                    <td>{{product.techSpecs.length +1}}</td>
+                                    <td><input type="text" class="input-field" name = "itemAttribute" [(ngModel)]= "techSpec.itemAttribute"></td>
+                                    <td><input type="text" class="input-field" name = "itemValue" [(ngModel)]= "techSpec.itemValue"></td>
+                                    <td><input type="button" (click)="addAttribute()" class="submit-btn" value="Add"></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+
+                      </div>
+                      <div class="btn-wrapper">
+                              <input type="submit" (click)="submit()" class="submit-btn" value="Upload Product">
+                      </div>
+                  </form>
+              </div><!-- //.product upload inner -->
+          </div>
+      </div>
+  </div>
+</div>
+<!-- product upload area end -->
+
+<!-- product upload area end -->
+<div class="body-overlay" id="body-overlay"></div>
+<div class="search-popup" id="search-popup">
+    <form action="index.html" class="search-popup-form">
+        <div class="form-element">
+                <input type="text"  class="input-field" placeholder="Search.....">
+        </div>
+        <button type="submit" class="submit-btn"><i class="fas fa-search"></i></button>
+    </form>
+</div>

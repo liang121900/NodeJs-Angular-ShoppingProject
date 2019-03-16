@@ -1,0 +1,60 @@
+<!-- cart sidebar area start -->
+<div class="cart-sidebar-area" id="cart-sidebar-area">
+  <div class="top-content"><!-- top content -->
+      <a href="#" class="logo">
+          <img src="assets/img/logo-white.png" alt="logo">
+      </a>
+      <span class="side-sidebar-close-btn" ><i class="fas fa-times"></i></span>
+  </div><!-- //. top content -->
+  <div class="bottom-content" style="height: 350px; overflow-y: auto;"><!-- bottom content -->
+      <div class="cart-products"><!-- cart product -->
+          <h4 class="title">Shopping cart</h4>
+
+
+          <div *ngFor="let item of productList; let i = index">
+
+
+               <!-- {{item | json }} -->
+
+              <div *ngIf="item && item.title !== undefined">
+
+                <div class="single-product-item"><!-- single product item -->
+                  <div class="thumb">
+                      <img src="{{url}}/load-image?imageUrl={{item.imageUrl}}" alt="recent review" style="height:80px;">
+                  </div>
+                  <div class="content">
+                      <h4 class="title">{{item.title}}</h4>
+                      <div class="price"><span class="pprice">${{item.sprice}} </span> <del class="dprice">${{item.price}} </del></div>
+                      <a (click)="removeItem(item, i)" class="remove-cart">Remove <!-- {{i}} --></a>
+                      <!-- (click)="removeItem(item.pid)" -->
+                  </div>
+
+              </div><!-- check if we have items -->
+
+            </div>
+
+          </div>
+
+          <!--
+          <div class="single-product-item">
+              <div class="thumb">
+                  <img src="assets/img/recent-review/01.jpg" alt="recent review">
+              </div>
+              <div class="content">
+                  <h4 class="title">Footwear Dark</h4>
+                  <div class="price"><span class="pprice">$350.00</span> <del class="dprice">$500.00</del></div>
+                  <a href="#" class="remove-cart">Remove</a>
+              </div>
+          </div>
+          -->
+
+          <div class="btn-wrapper">
+              <a (click)="goToShoppingCartPage()" class="boxed-btn" style="color:#fff;cursor: pointer;">Checkout</a>
+          </div>
+
+          <div class="btn-wrapper">
+                <a (click)="clearCart()" class="boxed-btn" style="color:#fff;cursor: pointer;">Clear Cart</a>
+            </div>
+      </div> <!-- //. cart product -->
+  </div><!-- //. bottom content -->
+</div>

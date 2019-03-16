@@ -1,0 +1,89 @@
+<button  class="button" (click)="openPopUp(content)" >Edit</button><!-- openPopUp takes a param, content, 
+    which is from the  modal (#content)-->
+<div *ngIf="adLoaded | async"> <!-- if the observable has finished subscribing -->
+    <a href="{{adDetails.productId}}">
+        <div class="single-offer-item-tall"><!-- single offer item tall -->
+        <div class="thumb">
+            <img src="{{adDetails.imageUrl}}" alt="offered image">
+        </div>
+        <div class="content">
+            <span class="subtitle">{{adDetails.subtitle}}</span>
+            <div class="countdown-area">
+                <ul>
+                    <li>
+                            <div class="single-countdown-box"><!-- single countdown box -->
+                                <span class="time" id="chour">{{hours}}</span>
+                                <span class="name">hr</span>
+                            </div><!-- //.single countdown box -->
+                    </li>
+                    <li>
+                        <div class="single-countdown-box"><!-- single countdown box -->
+                            <span class="time" id="cmin">{{minutes}}</span>
+                            <span class="name">min</span>
+                        </div><!-- //.single countdown box -->
+                    </li>
+                    <li>
+                        <div class="single-countdown-box"><!-- single countdown box -->
+                            <span class="time" id="csec">{{seconds}}</span>
+                            <span class="name">Sec</span>
+                        </div><!-- //.single countdown box -->
+                    </li>
+                </ul>
+            </div>
+            <h4 class="title">{{adDetails.title}}</h4>
+            <div class="price"><span class="sprice">{{adDetails.orgPrice}}</span> <del class="dprice">{{adDetails.discountPrice}}</del></div>
+        </div>
+
+        <div><!-- hidden field to input the end date for the countdown timer -->
+            <input type="hidden" id="endDate" value="{{adDetails.endDate}}">
+        </div>
+
+        </div><!-- //.single oofer item tall -->
+    </a>
+</div>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Advertisement Update</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input class="form-control" name="title" [(ngModel)]="adDetails.title" type="text">
+            </div>
+            <div class="form-group">
+                <label for="subtitle">Subtitle</label>
+                <input class="form-control" name="subtitle" [(ngModel)]="adDetails.subtitle" type="text">
+            </div>
+            <div class="form-group">
+                <label for="orgPrice">Original Price</label>
+                <input class="form-control" name="orgPrice" [(ngModel)]="adDetails.orgPrice" type="text">
+            </div>
+            <div class="form-group">
+                <label for="discountPrice">Discount Price</label>
+                <input class="form-control" name="discountPrice" [(ngModel)]="adDetails.discountPrice" type="text">
+            </div>
+            <div class="form-group">
+                <label for="endDate">End Date (if no change leave blank)</label>
+                <input class="form-control" name="endDate" [(ngModel)]="adDetails.endDate" type="datetime-local">
+            </div>
+            <div class="form-group">
+                <label for="productId">Product ID</label>
+                <input class="form-control" name="productId" [(ngModel)]="adDetails.productId" type="text">
+            </div>
+            <div class="form-group">
+                <label for="imageUrl">Image</label>
+                <input style="display:inline" name="imageUrl" type="file" (change)="onFileChanged($event)"><br>
+                <img src="{{imageShow}}" style="width:80px;">
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="editAd()">Save</button>
+    </div>
+</ng-template>

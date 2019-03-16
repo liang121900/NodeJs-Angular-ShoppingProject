@@ -1,0 +1,21 @@
+<!-- <div class="row"> -->
+    <div class="col-lg-4 col-md-6">
+        <div class="single-new-collection-item"><!-- single new collections -->
+            <div class="thumb">
+                <img src="{{productDetails.imageUrl}}" alt="new collcetion image">
+                <div class="hover">
+                    <a (click)="addToCart(productDetails)" class="addtocart">Add To Cart</a>
+                </div>
+            </div>
+            <div class="content">
+                <span class="category">{{productDetails.category}}</span>
+                <a href="#"><h4 class="title">{{productDetails.title}}</h4></a>
+                <div class="price">
+                    <span class="sprice">{{productDetails.price}}</span> 
+                    <del class="dprice">{{productDetails.sprice}}</del>
+                </div>
+
+            </div>
+        </div><!-- //. single new collections  -->
+    </div>
+<!-- </div> -->

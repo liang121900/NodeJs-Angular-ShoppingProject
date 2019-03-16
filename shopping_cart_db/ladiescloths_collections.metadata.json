@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"shopping_cart_db.ladiescloths_collections"},{"v":2,"unique":true,"key":{"pid":1},"name":"pid_1","ns":"shopping_cart_db.ladiescloths_collections","background":true}],"uuid":"db15efbaf7544469945bfbf19575ef7b"}

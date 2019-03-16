@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"shopping_cart_db.billing_colletions"},{"v":2,"unique":true,"key":{"bid":1},"name":"bid_1","ns":"shopping_cart_db.billing_colletions","background":true}],"uuid":"d56efd9b505e431c8478343fc84ca01d"}

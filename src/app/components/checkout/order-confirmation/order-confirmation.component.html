@@ -1,0 +1,82 @@
+<div *ngIf="orderPlacedDetails.paymentDetails!=null">
+  <br>
+  <h2 style="text-align: center">Thank You!</h2>
+  <hr>
+  <br>
+  <h3 style="text-align: center">Order Confirmation Number:&nbsp;&nbsp;{{orderPlacedDetails.orderId}}</h3>
+  <br><br>
+  <div class="row" style="width: 85%; margin-left: 7%">
+    <div class="left-content-area" style="margin: 0 auto; width: 40%">
+      <table class="table">
+        <tr>
+          <td>
+            <h5>EMAIL</h5><br>
+            <p style="font-size: 18px">{{orderPlacedDetails.billingDetails.email}}</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <h5>PAYMENT METHOD</h5><br>
+            <p style="font-size: 18px">{{orderPlacedDetails.paymentDetails.paymentType}}</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <h5>ORDER DATE</h5><br>
+            <p style="font-size: 18px">{{orderPlacedDetails.orderDate | date:'longDate'}}</p>
+          </td>
+        </tr>
+        <tr>
+          <td><h5>Shipping Details</h5><br>
+            <p style="font-size: 18px">{{orderPlacedDetails.billingDetails.firstName}}&nbsp;{{orderPlacedDetails.billingDetails.lastName}} <br>
+            {{orderPlacedDetails.billingDetails.streetAddress}}<br>
+            {{orderPlacedDetails.billingDetails.country}}<br></p>
+          </td>
+        </tr>
+        <tr *ngIf="orderPlacedDetails.orderNotes!=null">
+          <td><h5>Order Notes</h5><br>
+            <p style="font-size: 18px">{{orderPlacedDetails.orderNotes}}</p>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="right-content-area" style="margin: 0 auto; width: 45%">
+    <table class="table table-bordered" style="text-align: center;">
+      <thead style="padding: 10px">
+        <th><h5>#</h5></th>
+        <th><h5>Product</h5></th>
+        <th><h5>Price</h5></th>
+        <th><h5>Quanity</h5></th>
+      </thead>
+      <tr *ngFor="let item of productList; let i = index">
+        <td><p style="font-size: 18px">{{i}}</p></td>
+        <td *ngIf="item.title !== undefined">
+          <div class="product-details">
+            <!-- product details -->
+            <div class="content">
+              <h6 class="title">{{item.title}}</h6>
+            </div>
+            <div class="thumb">
+              <img src="{{url}}/load-image?imageUrl={{item.imageUrl}}" alt="cart image" style="height:80px;"><br />
+            </div>
+          </div><!-- //. product detials -->
+        </td>
+        <td *ngIf="item.title !== undefined">
+          <div class="price"><p style="font-size: 18px">${{item.price}}</p></div>
+        </td>
+        <td *ngIf="item.title !== undefined">
+          <div class="qty">
+            <ul>
+              <li><span class="qttotal"><p style="font-size: 18px">{{item.qty || 0}}</p></span></li>
+            </ul>
+          </div>
+        </td>
+
+      </tr>
+    </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"shopping_cart_db.profiles_data"},{"v":2,"unique":true,"key":{"pid":1},"name":"pid_1","ns":"shopping_cart_db.profiles_data","background":true}],"uuid":"6e957581a30d4d439c9902762855e2dd"}

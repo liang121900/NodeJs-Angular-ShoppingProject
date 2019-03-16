@@ -1,0 +1,106 @@
+<!-- breadcrumb area start -->
+<section class="breadcrumb-area breadcrumb-bg">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="breadcrumb-inner"><!-- breadcrumb inner -->
+                  <div class="left-content-area"><!-- left content area -->
+                      <h1 class="title">Upload Vendor</h1>
+                  </div><!-- //. left content area -->
+                  <div class="right-content-area">
+                      <ul>
+                          <li><a href="index.html">Home</a></li>
+                          <li> Upload Vendor  </li>
+                      </ul>
+                  </div>
+              </div><!-- //. breadcrumb inner -->
+          </div>
+      </div>
+  </div>
+</section>
+<!-- breadcrumb area end -->
+
+<!-- product upload area start -->
+{{vendorForm.value | json }}
+<div class="product-upload-area" style="margin-top:30px;">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="product-upload-inner"><!-- product upload inner -->
+                  <form #vendorForm="ngForm" novalidate>
+                    <span>{{message}}</span>
+                      <div class="form-element margin-bottom-20">
+                                <div class="row">
+                                    <div class="col-sm-6"><label>VCode <span>**</span></label>
+                                        <input #vcode="ngModel" type="text" name="vcode" class="input-field" [(ngModel)]="vendor.vcode" placeholder="Enter vendor code..." required>
+                                        <div class="alert alert-danger" *ngIf="vcode.touched && !vcode.valid">
+                                            Vcode is required
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6"><label>Name <span>**</span></label>
+                                        <input  #name="ngModel" type="text" name="name" class="input-field" [(ngModel)]='vendor.name' placeholder="Enter Name.." minlength="5" maxlength="20" required>
+                                        <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+                                            <div *ngIf="name.errors.required">Name is required</div>
+                                            <div *ngIf="name.errors.minlength">Name min length should not be less than 5</div>
+                                            <div *ngIf="name.errors.maxlength">Name max length should not be greater than 10</div>
+                                        </div>
+                                    
+                                    </div>
+                                  </div>  
+                    </div>
+                     
+                      <div class="form-element margin-bottom-20">
+                          <label>Email <span>**</span></label>
+                          <input type="email" class="input-field" name = "email" [(ngModel)]='vendor.email' placeholder="Enter email..">
+                      </div>
+                      <div class="form-element margin-bottom-20">
+                        <label>Mobile <span>**</span></label>
+                        <input #mobile="ngModel" type="number" class="input-field" name = "mobile" [(ngModel)]='vendor.mobile' placeholder="Enter mobile.." required pattern="^((\\+91-?)|0)?[0-9]{10}$">
+                         <div class="alert alert-danger" *ngIf="mobile.touched && !mobile.valid">
+                            <div *ngIf="mobile.errors.required">Mobile is required</div>
+                            <div *ngIf="mobile.errors.pattern">Mobile number not valid.</div> 
+                         </div>
+                    </div>
+                    <div class="form-element margin-bottom-20">
+                      <label>Address <span>**</span></label>
+                      <input type="email" class="input-field" name = "address" [(ngModel)]='vendor.address' placeholder="Enter address..">
+                  </div>
+                      
+
+                      <div class="form-element margin-bottom-20">
+                            <label>Profile Pic <span>**</span></label>
+                <input 
+                            style="display:inline" 
+                            type="file" (change)="onFileChanged($event)">
+                  <!--
+                 <input type="button" (click)="fileInput.click()" class="submit-btn" value="Select Photo">
+                  -->
+                      <img [src]="imageShow" style="height: 120px;">    
+                      </div>
+                     
+                      <div class="form-element margin-bottom-20">
+                            <label>Comment <span></span></label>
+                          <input type="text" class="input-field" name = "comment" [(ngModel)]= "vendor.comment">
+                      </div>
+                      <div class="btn-wrapper">
+                      <input type="button" [disabled]="!vendorForm.form.valid" (click)="addVendor();" class="submit-btn" value="Add Vendor">
+                      </div>
+                  </form>
+              </div><!-- //.product upload inner -->
+          </div>
+      </div>
+  </div>
+</div>
+<!-- product upload area end -->
+
+<!-- product upload area end -->
+
+<div class="body-overlay" id="body-overlay"></div>
+<div class="search-popup" id="search-popup">
+    <form action="index.html" class="search-popup-form">
+        <div class="form-element">
+                <input type="text"  class="input-field" placeholder="Search.....">
+        </div>
+        <button type="submit" class="submit-btn"><i class="fas fa-search"></i></button>
+    </form>
+</div>

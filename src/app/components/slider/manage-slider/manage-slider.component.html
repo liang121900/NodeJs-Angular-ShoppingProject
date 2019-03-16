@@ -1,0 +1,81 @@
+
+
+
+<section class="breadcrumb-area breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-inner"><!-- breadcrumb inner -->
+                    <div class="left-content-area"><!-- left content area -->
+                        <h1 class="title">Manage Sliders</h1>
+                    </div><!-- //. left content area -->
+                    <div class="right-content-area">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li>Manage Sliders</li>
+                        </ul>
+                    </div>
+                </div><!-- //. breadcrumb inner -->
+            </div>
+        </div>
+    </div>
+  </section>
+
+  
+
+  <div class="vendor-seller-area">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-lg-8">
+                  <div class="section-title-two"><!-- section title two -->
+                      <span class="subtitle">Sliders</span>
+                      <h2 class="title">Select Slider</h2>
+                  </div><!-- //.sectoin title two -->
+              </div>
+          </div>
+
+
+          <div class="row">
+        
+              <div *ngFor ="let slider of sliderData; let i=index" class="col-lg-4 col-md-6">
+                  <div class="single-vendor-member"><!-- single vendor memeber -->
+                      <div style="margin-left: 30px; margin-right: 30px;">
+                          <img src="{{slider.image}}" alt="slider member">
+                      </div>
+                      <div class="content">
+                          <br>
+                          <br>
+                            <div class="radio">
+                                    <label><input type="radio" name="radiogroup" 
+                                        [checked]="slider.selected=='true'"
+                                        [value]="slider._id"
+                                        (change)="onSelectionChange(slider)"></label>
+                               </div>     
+                      </div>
+                  </div><!-- //. single vendor member -->
+              </div>
+
+              
+             
+            
+          </div>
+          <button type="button" (click)="toMainSlider()" class="btn btn-primary" style="margin-left: 1035px;margin-top: 60px;">Select</button>
+          <app-save-slider-form></app-save-slider-form>
+      </div>
+
+
+<!--the form for adding new slider-->
+
+    
+    
+    
+    <div class="edit-slider-button" (click)="open(content)">
+      <i class="fas fa-wrench"></i>
+    </div>
+
+
+    </div>  
+    <!-- vendor seller area end -->
+    <div class="section-separator"></div>
+    <!-- vendor seller area start -->
+   

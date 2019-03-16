@@ -1,0 +1,45 @@
+<section class="best-sellers-area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="section-title"><!-- section title --> 
+                    <span class="subtitle">Current Vendors</span>
+                    <h2 class="title">Our Top Brands</h2>
+                </div><!-- //. section title -->
+            </div>
+        </div>
+        <div class="row" *ngIf="vendorsLoaded | async">
+            <div class="col-lg-4 col-md-6" *ngFor="let topVendor of topVendors">
+                <a href="/{{topVendor.vcode}}">
+                    <div class="single-vendor-member"><!-- single vendor memeber-->
+                        <div class="thumb">
+                            <img src="{{url}}/admin/vendors/image/{{topVendor.vcode}}" style="size:30px">
+                        </div>
+                        <div class="content">
+                            <h4 class="name">{{topVendor.vendor.name}}</h4>
+                            <div class="reviews">                              
+                                <ul >
+                                    <li *ngFor="let full of topVendor.fullStar;"><i class="fas fa-star"></i></li>
+                                    <li *ngFor="let half of topVendor.halfStar;"><i class="fas fa-star-half-alt"></i></li>
+                                    <li *ngFor="let no of topVendor.noStar;"><i class="far fa-star"></i></li>
+                                </ul>
+                            </div>
+                            <span  class="items" style="size: 5px">{{topVendor.numRatings}} reviews</span>
+                        </div>
+                    </div><!-- //. single vendor member -->
+                </a>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div class="section-title"><!-- section title --> 
+                        <a href="/vendor-list" class="subtitle">See More</a>
+                    </div><!-- //. section title -->
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</section>

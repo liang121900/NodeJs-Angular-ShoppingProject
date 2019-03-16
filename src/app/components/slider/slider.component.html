@@ -1,0 +1,22 @@
+<!-- header area start -->
+<!--../../../assets/img/bg/header-bg-5.jpg-->
+<div class="header-area header-bg" [ngStyle]="{'background-image':'url('+imageUrl+')'}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="header-inner "><!-- header inner -->
+                    <span class="subtitle">{{slider.topSmallText}}</span>
+                    <h1 class="title">{{slider.boldText}}</h1>
+                    <p class="wow fadeInDown">{{slider.paraText}}</p>
+                        <div class="btn-wrapper">
+                            <a href="category.html" class="boxed-btn">{{slider.btnOneText}}</a>
+                            <a href="about.html" class="boxed-btn">{{slider.btnTwoText}}</a>
+                        </div>
+                </div><!-- //. header inner -->
+            </div>
+        </div>
+
+        <ngbd-modal-basic [slider]='slider'></ngbd-modal-basic>
+
+    </div>
+</div>
