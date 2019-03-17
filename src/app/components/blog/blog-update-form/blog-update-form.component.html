@@ -28,7 +28,7 @@
 <!--MODAL-->
 <ng-template #content let-modal style="width:100%;">
   <div class="modal-header">
-    <h2 class="modal-title" id="modal-basic-title"><b>Edit Blog</b></h2>
+    <h2 class="modal-title" id="modal-basic-title" ><b>Edit Blog</b></h2>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -72,7 +72,7 @@
 </ng-template>
 
 <!--when click show the ng-template name content-->
-<button type="button" (click)="open(content); modal.close('Save click')" class="btn btn-info" style="margin-left: 550px;">Edit
+<button type="button" *ngIf='isAdmin' (click)="open(content); modal.close('Save click')" class="btn btn-info" style="margin-left: 550px;">Edit
   Blog</button>
   
 

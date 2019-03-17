@@ -4,6 +4,7 @@ import { AppConfig } from '../config/app.config';
 import { Observable } from 'rxjs';
 import { Blog } from '../model/blog';
 import { bind } from '@angular/core/src/render3';
+import { Comment } from '../model/comment';
 
 @Injectable({
   providedIn: 'root'
@@ -75,4 +76,10 @@ export class BlogService {
     return this.http.patch(endpoint,tempBlog);
     
   }
+
+  public addBlogComment(bid:String,comment:Comment){
+    const endpoint=AppConfig.BLOG_ENDPOINT+'/'+bid+'/comments/';
+    return this.http.post(endpoint,comment);
+  }
+
 }

@@ -8,4 +8,5 @@ export class Blog{
 
     public content:String;
     public tags:String[];
+    public comments:Comment[];
 }

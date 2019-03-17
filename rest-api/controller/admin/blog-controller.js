@@ -15,14 +15,19 @@ module.exports.findAllBlogs = (req,res) => {
 }
 
 module.exports.findBlogByBid = (req,res) => {
-    let bid=req.param('bid');
+    let bid=req.params.bid;
     
     BlogEntity.find({bid:bid},(err,blog)=>{
-        console.log(blog);
+        let resBlog=blog[0].toObject({ getters: true });
         if(err)
             return res.status(500).json('[]');
-        else
-            return res.status(200).json(blog[0]);
+        else{
+            resBlog.comments=[];
+            blog[0].comments.forEach(comment=>{
+                resBlog.comments.push(JSON.parse(comment));
+            });
+            return res.status(200).json(resBlog);
+        }
     });
 
 }
@@ -170,6 +175,26 @@ module.exports.deleteBlog = (req, res) => {
         res.status(200).json("success");
         }
     });
+
+
+}
+
+module.exports.postComment = (req, res) => {
+    let bid=req.param('bid');
+    let comment=req.body;
+    BlogEntity.findOne({bid:bid},(err,blog)=>{
+        if(err)
+            return res.status(404).json('blog not found '+err);
+        if(!blog.comments){
+            blog.comments=[];
+        }
+        blog.comments.push(JSON.stringify(comment));
+        blog.save(err=>{
+            if(err)
+                return res.status(500).json('err in saving '+err);
+            return res.status(200).json('success');
+        });
+    })
 
 
 }

@@ -7,7 +7,8 @@ var BlogSchema=new mongoose.Schema({
     description:{type:String},
     postDate:{type:Date},
     content:{type:String},
-    tags:{type:[String],default:[]}
+    tags:{type:[String],default:[]},
+    comments:{type:[String],default:[]}
 },{collection:'blog_collections'});
 
 //save the data with date

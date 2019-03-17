@@ -1,5 +1,4 @@
-   <!-- breadcrumb area start -->
-<section class="breadcrumb-area breadcrumb-bg extra">
+   <section class="breadcrumb-area breadcrumb-bg extra">
   <div class="container">
       <div class="row">
           <div class="col-lg-12">
@@ -31,9 +30,9 @@
                       </div><!-- //.meta time -->
                       <div class="details-container"><!-- details contaienr -->
                           <div class="meta-tags"><!-- meta tags -->
-                            <app-blog-update-form [blog]='blog' (isUpdated)='onUpdated($event)'></app-blog-update-form>
+                            <app-blog-update-form  [blog]='blog' (isUpdated)='onUpdated($event)'></app-blog-update-form>
                               <ul>
-                                  <li><i class="fas fa-comments"></i> 33 Comments</li>
+                                  <li *ngIf='blog.comments'><i class="fas fa-comments"></i> {{blog.comments.length}}</li>
                                   <li><i class="fas fa-share"></i> 50 Shares</li>
                               </ul>
                           </div>
@@ -68,39 +67,38 @@
                           <div class="single-post-separator"></div>
                           <div class="comments-area"><!-- comments area satart -->
                               <h3 class="title">Comments</h3>
-                              <div class="single-comment-item margin-bottom-40"><!-- single comment item -->
+                              <div *ngFor='let c of blog.comments' class="single-comment-item margin-bottom-40"><!-- single comment item -->
                                   <div class="thumb">
-                                      <img src="assets/img/comments/01.png" alt="commente avatar">
+                                      <img src="assets/img/comments/anonymous.png" alt="commente avatar">
                                   </div>
                                   <div class="content">
-                                      <span class="meta-date">19th May 2018</span>
-                                      <h4 class="author-name">Rosalina Pong</h4>
-                                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                      Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                                      <span class="meta-date">{{c.postDate}}</span>
+                                      <h4 class="author-name">{{c.name}}</h4>
+                                      <p>{{c.content}}</p>
                                   </div>
                                   <a href="#" class="reply-btn"><i class="fas fa-reply"></i> Reply</a>
                               </div><!-- //. single comment item -->
-                              <div class="single-comment-item"><!-- single comment item -->
-                                  <div class="thumb">
-                                      <img src="assets/img/comments/02.png" alt="commente avatar">
-                                  </div>
-                                  <div class="content">
-                                      <span class="meta-date">19th May 2018</span>
-                                      <h4 class="author-name">Arista Williamson</h4>
-                                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                      Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-                                  </div>
-                                  <a href="#" class="reply-btn"><i class="fas fa-reply"></i> Reply</a>
-                              </div><!-- //. single comment item -->
+                           
+
+
+
                           </div><!-- //. comments area end -->
                           <div class="single-blog-page-separator"></div>
                           <div class="comments-form-area"><!-- comments form area -->
                               <h3 class="title">Post Comment</h3>
                               <div class="comment-form-wrapper"><!-- comment form wrapper -->
-                                  <form action="blog-details.html">
+                                  <form novalidate (ngSubmit)="postComment()"
+                                  #form="ngForm" action="blog-details.html">
                                       <div class="form-element margin-bottom-15">
                                           <div class="has-icon textarea">
-                                              <textarea rows="20" cols="8" placeholder="Type your comments...." class="input-field borderd textarea"></textarea>
+                                              <textarea name='content' [(ngModel)]='comment.content' #content='ngModel' required rows="20" cols="8" placeholder="Type your comments...." class="input-field borderd textarea"></textarea>
+                                            <!--validation of content-->
+                                            <div class="form-group has-danger">
+                                              <div class="form-control-feedback" *ngIf="content.errors && (content.dirty || content.touched)">
+                                                <p style="color:red" *ngIf="content.errors.required">Comment content is required.</p>
+                                            </div>
+                                            </div>
+
                                               <div class="the-icon">
                                                   <i class="fas fa-pencil-alt"></i>
                                               </div>
@@ -108,30 +106,38 @@
                                       </div>
                                       <div class="form-element margin-bottom-20">
                                           <div class="has-icon ">
-                                             <input type="text" class="input-field borderd" placeholder="Type your name....">
-                                              <div class="the-icon">
+                                             <input type="text" name='name' [(ngModel)]='comment.name'  #name='ngModel' required class="input-field borderd" placeholder="Type your name....">
+                                             
+                                              <!--validation of content-->
+                                              <div class="form-group has-danger">
+                                              <div class="form-control-feedback" *ngIf="name.errors && (name.dirty || name.touched)">
+                                                <p style="color:red" *ngIf="name.errors.required">Name is required.</p>
+                                            </div>
+                                        </div>
+                                             
+                                             <div class="the-icon">
                                                   <i class="fas fa-user"></i>
                                               </div>
                                           </div>
                                       </div>
                                       <div class="form-element margin-bottom-20">
                                           <div class="has-icon ">
-                                             <input type="email" class="input-field borderd" placeholder="Type your email....">
-                                              <div class="the-icon">
+                                             <input type="email" name='email' [(ngModel)]='comment.email' #email='ngModel' required class="input-field borderd" placeholder="Type your email....">
+                                              <!--validation of content-->
+                                            <div class="form-group has-danger">
+                                                <div class="form-control-feedback" *ngIf="email.errors && (email.dirty || email.touched)">
+                                                    <p style="color:red" *ngIf="email.errors.required">Email is required.</p>
+                                                </div> 
+                                              </div>
+
+                                             <div class="the-icon">
                                                   <i class="fas fa-envelope"></i>
                                               </div>
                                           </div>
                                       </div>
-                                      <div class="form-element ">
-                                          <div class="has-icon ">
-                                             <input type="url" class="input-field borderd" placeholder="Type your website....">
-                                              <div class="the-icon">
-                                                  <i class="fas fa-globe"></i>
-                                              </div>
-                                          </div>
-                                      </div>
+
                                       <div class="form-element margin-top-40">
-                                          <input type="submit" value="post comment" class="submit-btn btn-rounded">
+                                          <button style="border-radius: 8px; width: 200px; height: 50px;color: white;background-color:skyblue;" name='postComment' type="submit"  [disabled]="form.invalid" >Post Comment</button>
                                       </div>
                                   </form>
                               </div>
@@ -445,3 +451,12 @@
       </div><!-- //.container -->
   </section>
   <!-- blog details page content area end -->
+
+
+
+
+
+
+
+
+

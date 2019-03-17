@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BlogService } from 'src/app/services/blog.service';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-blog-update-form',
@@ -22,11 +23,16 @@ export class BlogUpdateFormComponent implements OnInit {
   public blogCopy:Blog;
   @Output() isUpdated = new EventEmitter<Blog>();
   closeResult: string;
-
-  constructor(private modalService: NgbModal, private blogService:BlogService) { }
+  public isAdmin:boolean=false;
+  constructor(private modalService: NgbModal, private blogService:BlogService,private userService:UserService) { }
 
 
   ngOnInit(){
+    this.userService.observableUser.subscribe(user=>{
+      if(user.role=='admin')
+        this.isAdmin=true;
+    });
+
   }
 
   open(content) {
