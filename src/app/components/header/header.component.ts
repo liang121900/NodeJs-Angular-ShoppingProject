@@ -61,8 +61,11 @@ export class HeaderComponent implements OnInit {
 
     this.shoppingCartService.productObservable.subscribe(
       pProductArray=>{
-        
-        this.itemsInCart = pProductArray.length;
+        if(pProductArray){
+          this.itemsInCart = pProductArray.length;
+        }else{
+          this.itemsInCart=0;
+        }
 
       }
     );

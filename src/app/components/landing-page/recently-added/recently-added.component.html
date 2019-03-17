@@ -24,6 +24,55 @@
 
               <div class="recently-added-carousel" id="recently-added-carousel"><!-- recently added carousel -->
 
+
+
+
+
+  
+                <div *ngFor='let p of recentlyAddProducts'  class="single-new-collection-item">
+                   
+
+                    <div class="thumb">
+
+                        <img src="{{imageUrl}}{{p.imageUrl}}" alt="product image">
+
+                        <div class="hover">
+
+                            <a href="#" (click)='addToCart(p)' class="addtocart">Add to cart</a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="content">
+
+                        <a href="#" class="category">{{p.category}}}</a>
+
+                        <h4 class="title">{{p.title}}</h4>
+
+                        <div class="price"><span class="sprice">${{p.sprice}}</span> <del class="dprice">${{p.price}}}</del></div>
+                        <div class="price"><span class="sprice">Added Date: {{p.doe|date}}</span></div>
+
+                    </div>
+                </div>
+              
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+
+
                   <div class="single-new-collection-item">
 
                       <div class="thumb">
@@ -127,32 +176,12 @@
                       </div>
 
                   </div>
+-->
 
-                  <div class="single-new-collection-item">
 
-                      <div class="thumb">
 
-                          <img src="assets/img/new-collections/03.jpg" alt="product image">
 
-                          <div class="hover">
 
-                              <a href="#" class="addtocart">Add to cart</a>
-
-                          </div>
-
-                      </div>
-
-                      <div class="content">
-
-                          <a href="#" class="category">cycle</a>
-
-                          <h4 class="title">Minimal Cycle</h4>
-
-                          <div class="price"><span class="sprice">$70.00</span> <del class="dprice">$90.00</del></div>
-
-                      </div>
-
-                  </div>
 
               </div><!-- //. recently added carousel -->
 

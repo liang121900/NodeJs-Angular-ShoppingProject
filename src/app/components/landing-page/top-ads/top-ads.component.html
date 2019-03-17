@@ -6,13 +6,13 @@
 
       <div class="row">
 
-          <div class="col-lg-4 col-md-6">
+          <div *ngFor='let ad of selectedAds' class="col-lg-4 col-md-6">
 
              <div class="img-wrapper">
 
                   <a href="#">
 
-                      <img src="assets/img/banner-add/03.jpg" alt="banner image">
+                      <img style="width: 300px;height:300px;" src="{{ad.imageUrl}}" alt="banner image">
 
                   </a>
 
@@ -20,33 +20,7 @@
 
           </div>
 
-          <div class="col-lg-4 col-md-6">
 
-              <div class="img-wrapper">
-
-                  <a href="#">
-
-                      <img src="assets/img/banner-add/04.jpg" alt="banner image">
-
-                  </a>
-
-              </div>
-
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-
-             <div class="img-wrapper">
-
-                  <a href="#">
-
-                      <img src="assets/img/banner-add/05.jpg" alt="banner image">
-
-                  </a>
-
-             </div>
-
-          </div>
 
       </div>
 

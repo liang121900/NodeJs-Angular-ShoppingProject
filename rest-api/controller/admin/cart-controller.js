@@ -264,11 +264,11 @@ module.exports.updateCart=(req,res)=>{
    let prodArray=req.body;
    //prepare the array of products to be saved in db
    let ppArray=[];
-   
+   if(prodArray&&prodArray.length>0){
    prodArray.forEach(product=>{
       ppArray.push(JSON.stringify(product));
    });
-   
+}
    //look for the cart for this username, if cart records exist, update, otherwise create one 
    CartEntity.findOne({username:userName},(err,cart)=>{
       if(err)

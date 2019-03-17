@@ -50,6 +50,25 @@ module.exports.findProductsByIds=(req,res)=> {
 
 }
 
+
+module.exports.findProductsWithPageNumberAndSortByDate=(req,res)=>{
+   let page=req.query.page;
+   let pageSize=req.query.pageSize;
+   let sortBy=req.query.sortBy;
+   let sortOrder=req.query.sort;
+   //{sort: '-date'} ->sort by date desc, {sort: 'date'} sort by date asc
+   options={skip:(page-1)*pageSize,limit:Number(pageSize),sort:sortOrder=='desc'?'-'+sortBy:sortBy};
+        ProductEntity.find({},{},options,(err,products)=>{
+           if(err)
+               return res.status(500).json('err in looking for products '+err);
+            else{
+               console.log(products);
+               return res.status(200).json(products);
+            }
+        });
+}
+
+
 module.exports.getImage = (req,res) =>{
    
    var url = req.query.imageUrl;

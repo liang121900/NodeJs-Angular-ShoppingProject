@@ -135,14 +135,16 @@ export class ShoppingCartService {
 
     //var itemsInCart = JSON.parse(localStorage.getItem("cart"));
     //var itemsInCart = JSON.parse(sessionStorage.getItem('cart'));
-    var itemsInCart = [];
-    itemsInCart.push( this._cookieService.getObject("cart") );
+    let itemsInCart = [];
+    if(this._cookieService.getObject("cart")){
+        itemsInCart.push(this._cookieService.getObject("cart"));
+    }
 
     console.log("service - items in cart:");
     console.log(itemsInCart);
-
-    itemsInCart[0].splice(index, 1);
-
+    if(itemsInCart.length>0){
+      itemsInCart[0].splice(index, 1);
+    }
     console.log("service - after splice:");
     console.log(itemsInCart[0]);
 

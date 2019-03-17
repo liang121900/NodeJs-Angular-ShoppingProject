@@ -45,7 +45,7 @@ var ImagePath=require('../../config/image-folder-path');
 // }
 
 module.exports.findById=(req, res) => {
-    var adverId=req.query.adId;
+    var adverId=req.params.id;
     
 
     AdEntity.find({ adId:adverId }, function(err, data){
@@ -54,6 +54,16 @@ module.exports.findById=(req, res) => {
         } else {
             res.status(200).json(data[0]);
         }
+    });
+}
+
+
+module.exports.findAll=(req,res)=>{
+    AdEntity.find({},(err,ads)=>{
+        if(err)
+            return res.status(500).json('error in looking for all ads');
+        else
+        res.status(200).json(ads);
     });
 }
 

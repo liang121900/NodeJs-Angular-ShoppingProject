@@ -114,4 +114,10 @@ export class ProductService {
     this.shoppingCartService.addProductToCart(item); // testProd
   }
 
+  getProductsByAddedDate(pageSize:number,pageNum:number):Observable<any>{
+    const endpoint = AppConfig.PRODUCT_ENDPOINT+'?pageSize='+pageSize+'&page='+pageNum+'&sortBy=doe&sort=desc';
+    return this.http.get(endpoint);
+  }
+  
+
 }

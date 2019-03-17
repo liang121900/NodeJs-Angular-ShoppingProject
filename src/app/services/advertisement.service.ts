@@ -14,7 +14,7 @@ export class AdvertisementService {
   constructor(private http:HttpClient) { }
 
   public findAdById(adId):Observable<any> {
-    return this.http.get(this.endpoint+"?adId="+adId);
+    return this.http.get(this.endpoint+"/"+adId);
   }
 
   public editAd(ad:Advertisement, image:File):Observable<any> {
@@ -36,5 +36,9 @@ export class AdvertisementService {
       responseType: 'text'
     });
     return this.http.request(req);
+  }
+
+  public findAll():Observable<any>{
+    return this.http.get(this.endpoint);
   }
 }
