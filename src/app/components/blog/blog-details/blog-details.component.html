@@ -31,7 +31,7 @@
                       </div><!-- //.meta time -->
                       <div class="details-container"><!-- details contaienr -->
                           <div class="meta-tags"><!-- meta tags -->
-                            <app-blog-update-form [blog]='blog'></app-blog-update-form>
+                            <app-blog-update-form [blog]='blog' (isUpdated)='onUpdated($event)'></app-blog-update-form>
                               <ul>
                                   <li><i class="fas fa-comments"></i> 33 Comments</li>
                                   <li><i class="fas fa-share"></i> 50 Shares</li>
@@ -41,19 +41,6 @@
                               <h3 class="title">{{blog.title}}</h3>
                              
                               <p>{{blog.content}}</p>
-                              <!-- //.post blockquote -->
-                             <!-- <blockquote class="post-blockquote">
-                                 
-                                  <div class="icon">
-                                      <i class="fas fa-quote-left"></i>
-                                  </div>
-                                  <div class="content">
-                                      <p>This is Photoshop’s version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis
-                                      bibendum auctor, nisi elit consequat ipsum, nec.</p>
-                                      <span class="post">- Rosalina Pong</span>
-                                  </div>
-                              </blockquote>
-                            -->
                               <div class="post-bottom-content"><!-- post bottom content -->
                                   <div class="top-content"><!-- top content -->
                                       <div class="left-content"><h4 class="title">Releted Tags</h4></div>

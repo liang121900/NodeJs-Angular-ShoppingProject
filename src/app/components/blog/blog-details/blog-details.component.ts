@@ -26,4 +26,7 @@ export class BlogDetailsComponent implements OnInit {
     }
   }
 
+  onUpdated(blog:Blog){
+    this.blog=blog;
+  }
 }

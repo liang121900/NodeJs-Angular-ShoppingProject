@@ -67,10 +67,34 @@
   <div class="modal-footer">
     <span style="margin-right: 90px"><b>{{message}}</b></span>
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
-    <button type="button" class="btn btn-outline-dark" (click)="updateBlog()">Update Blog</button>
+    <button type="button" class="btn btn-outline-dark" (click)="updateBlog();modal.close('Save click')">Update Blog</button>
   </div>
 </ng-template>
 
 <!--when click show the ng-template name content-->
-<button type="button" (click)="open(content)" class="btn btn-info" style="margin-left: 550px;">Edit
+<button type="button" (click)="open(content); modal.close('Save click')" class="btn btn-info" style="margin-left: 550px;">Edit
   Blog</button>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

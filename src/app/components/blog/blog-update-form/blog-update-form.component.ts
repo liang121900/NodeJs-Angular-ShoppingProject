@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Blog } from 'src/app/model/blog';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BlogService } from 'src/app/services/blog.service';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-blog-update-form',
@@ -19,8 +20,7 @@ export class BlogUpdateFormComponent implements OnInit {
   public uploadFile:File;
   public imageShow;
   public blogCopy:Blog;
-
-  
+  @Output() isUpdated = new EventEmitter<Blog>();
   closeResult: string;
 
   constructor(private modalService: NgbModal, private blogService:BlogService) { }
@@ -46,7 +46,6 @@ export class BlogUpdateFormComponent implements OnInit {
   }
 
   public addTag(){
-    console.log(this.blogCopy.tags);
     if(this.blogCopy.tags.length<1)
         this.blogCopy.tags.push('');
     //if the field is empty, do not add new field
@@ -63,8 +62,14 @@ public removeTag(i:number){
 public updateBlog(){
   this.blogService.patchBlogDetail(this.blogCopy).subscribe(res=>{
     this.message=res;
-
+    if(this.message=='update blog success.'){
+      this.isUpdated.emit(this.blogCopy);
+    }
   });
+ 
 }
+
+
+
 
 }
