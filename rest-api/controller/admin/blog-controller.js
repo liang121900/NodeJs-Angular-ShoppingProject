@@ -2,7 +2,8 @@ var IMAGE_FOLDER_PATH = require('../../config/image-folder-path');
 var db=require('mongodb');
 var fs = require('fs');
 var mongoose=require('mongoose');
-var BlogEntity=require('../../model/blog-entity')
+var BlogEntity=require('../../model/blog-entity');
+var uid=require('uid');
 module.exports.findAllBlogs = (req,res) => {
 
     BlogEntity.find({},(err,blogs)=>{
@@ -123,7 +124,6 @@ module.exports.updateBlog = (req, res) => {
 module.exports.patchBlog = (req, res) => {
     let bid=req.param('bid');
     let body=req.body;
-    console.log(body);
     BlogEntity.findOne({bid:bid}, (err, oldBlog) => {
         if (err) {
             console.log(err);
@@ -182,6 +182,7 @@ module.exports.deleteBlog = (req, res) => {
 module.exports.postComment = (req, res) => {
     let bid=req.param('bid');
     let comment=req.body;
+    comment.cid=uid();
     BlogEntity.findOne({bid:bid},(err,blog)=>{
         if(err)
             return res.status(404).json('blog not found '+err);

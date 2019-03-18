@@ -37,8 +37,6 @@ export class BlogDetailsComponent implements OnInit {
   }
 
   postComment(){
-    var uid = require('angular-uid');
-    this.comment.cid=uid();
     this.blogService.addBlogComment(this.blog.bid,this.comment).subscribe(res=>{
       if(res=='success'){
       this.blog.comments.push(this.comment);
